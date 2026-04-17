@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Plataforma gamificada e kits de robótica para levar o pensamento computacional para a sala de aula. Mais de 9 mil alunos impactados.",
+          "Plataforma gamificada e kits de robótica para levar o pensamento computacional para a sala de aula. Mais de 50 mil alunos impactados.",
       },
       { property: "og:title", content: "PiCode Education — Pensamento computacional" },
       { property: "og:description", content: "Plataformas e kits que transformam a forma de ensinar tecnologia nas escolas." },
@@ -55,10 +55,10 @@ const competencias = [
 ];
 
 const stats: Array<{ end: number; suffix?: string; label: string; separator?: boolean }> = [
-  { end: 9, suffix: "mil+", label: "alunos impactados", separator: false },
-  { end: 200, suffix: "+", label: "professores formados" },
-  { end: 93, suffix: "%", label: "acham que robótica facilita matemática" },
-  { end: 4, label: "estados em expansão" },
+  { end: 50, suffix: "mil+", label: "alunos impactados", separator: false },
+  { end: 1000, suffix: "+", label: "professores formados" },
+  { end: 98, suffix: "%", label: "das famílias aprovam a metodologia" },
+  { end: 22, label: "Estados + DF" },
 ];
 
 function HomePage() {
