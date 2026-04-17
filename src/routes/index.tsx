@@ -6,6 +6,7 @@ import rocketImg from "@/assets/3d-rocket.png";
 import robotImg from "@/assets/3d-robot.png";
 import bulbImg from "@/assets/3d-bulb.png";
 import studentsImg from "@/assets/students-collab.jpg";
+import mockupMobile from "@/assets/mockup-mobile.png";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
@@ -362,35 +363,14 @@ function HomePage() {
                 className="absolute -bottom-8 -left-4 w-[140px] sm:-left-8 sm:w-[170px]"
               >
                 <div className="relative rounded-[2rem] border-[6px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[9/19] overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-background to-secondary">
+                  <div className="relative aspect-[9/19] overflow-hidden rounded-[1.5rem] bg-background">
                     <div className="absolute left-1/2 top-1.5 z-10 h-3 w-12 -translate-x-1/2 rounded-full bg-foreground" />
-                    <div className="flex h-full flex-col p-2 pt-6">
-                      <div className="flex items-center justify-between">
-                        <div className="h-2 w-12 rounded bg-foreground/80" />
-                        <div className="h-5 w-5 rounded-full bg-gradient-blue" />
-                      </div>
-                      <div className="mt-2 rounded-lg bg-gradient-blue p-2 text-white">
-                        <Sparkles className="h-3 w-3" />
-                        <div className="mt-1 h-1.5 w-3/4 rounded bg-white/70" />
-                        <div className="mt-1 h-1 w-1/2 rounded bg-white/40" />
-                      </div>
-                      <div className="mt-2 space-y-1.5">
-                        {[0, 1, 2].map((i) => (
-                          <div key={i} className="flex items-center gap-1.5 rounded-md border border-border bg-card p-1.5">
-                            <div className="h-4 w-4 shrink-0 rounded bg-gradient-blue opacity-80" />
-                            <div className="flex-1 space-y-0.5">
-                              <div className="h-1 w-full rounded bg-muted" />
-                              <div className="h-1 w-2/3 rounded bg-muted" />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-auto flex items-center justify-around border-t border-border pt-1.5">
-                        {[Code2, Brain, Target].map((Icon, i) => (
-                          <Icon key={i} className={`h-3 w-3 ${i === 0 ? "text-primary" : "text-muted-foreground"}`} />
-                        ))}
-                      </div>
-                    </div>
+                    <img
+                      src={mockupMobile}
+                      alt="Tela da plataforma PiCode no celular mostrando projetos do aluno"
+                      className="h-full w-full object-cover object-top"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </motion.div>
