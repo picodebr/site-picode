@@ -301,8 +301,28 @@
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
 
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(22px, -18px); }
+}
+.animate-drift { animation: drift 12s ease-in-out infinite; }
+
+@keyframes drift-reverse {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-22px, 16px); }
+}
+.animate-drift-reverse { animation: drift-reverse 14s ease-in-out infinite; }
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+.animate-pulse-soft { animation: pulse-soft 5s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-float, .animate-float-slow, .animate-blob, .animate-marquee, .animate-spin-slow, .animate-draw {
+  .animate-float, .animate-float-slow, .animate-blob, .animate-marquee,
+  .animate-spin-slow, .animate-draw, .animate-drift, .animate-drift-reverse,
+  .animate-pulse-soft {
     animation: none !important;
   }
 }
