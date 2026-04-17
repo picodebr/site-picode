@@ -421,7 +421,7 @@ function HomePage() {
           preload="auto"
           aria-hidden="true"
         >
-          <source src="/impact-bg.mp4" type="video/mp4" />
+          <source src={impactBgVideo} type="video/mp4" />
         </video>
         {/* Véu para suavizar o vídeo e manter a leitura */}
         <div className="pointer-events-none absolute inset-0 bg-secondary/60" />
