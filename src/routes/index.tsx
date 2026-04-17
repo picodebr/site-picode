@@ -8,6 +8,7 @@ import bulbImg from "@/assets/3d-bulb.png";
 import studentsImg from "@/assets/students-collab.jpg";
 import mockupMobile from "@/assets/mockup-mobile-final.jpg";
 import mockupNotebook from "@/assets/mockup-notebook.png";
+import impactBgVideo from "@/assets/impact-bg.mp4";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
