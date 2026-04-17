@@ -62,8 +62,8 @@ function HomePage() {
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-background">
         <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
-        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
+        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
 
         <SpotlightHero className="relative min-h-[100svh]">
           <PathLines className="opacity-30" />
@@ -148,9 +148,9 @@ function HomePage() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="relative px-6 py-8 lg:px-8"
             >
-              <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl" />
+              <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-25 blur-3xl animate-pulse-soft" />
 
-              <div className="relative aspect-[4/5] overflow-hidden border border-border bg-card shadow-elegant blob-shape lg:aspect-square">
+              <div className="relative aspect-[4/5] overflow-hidden border border-border bg-card shadow-elegant blob-shape animate-blob lg:aspect-square">
                 <img
                   src={heroImg}
                   alt="Estudante usando a plataforma PiCode em um tablet"
@@ -161,9 +161,9 @@ function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>
 
-              <img src={rocketImg} alt="" aria-hidden className="pointer-events-none absolute left-1 top-4 hidden h-20 w-20 drop-shadow-2xl md:block" loading="lazy" />
-              <img src={bulbImg} alt="" aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-16 w-16 drop-shadow-2xl" loading="lazy" />
-              <img src={robotImg} alt="" aria-hidden className="pointer-events-none absolute right-2 top-[42%] hidden h-18 w-18 drop-shadow-2xl lg:block" loading="lazy" />
+              <img src={rocketImg} alt="" aria-hidden className="pointer-events-none absolute left-1 top-4 hidden h-20 w-20 drop-shadow-2xl animate-float md:block" loading="lazy" />
+              <img src={bulbImg} alt="" aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-16 w-16 drop-shadow-2xl animate-float-slow" loading="lazy" />
+              <img src={robotImg} alt="" aria-hidden className="pointer-events-none absolute right-2 top-[42%] hidden h-20 w-20 drop-shadow-2xl animate-float lg:block" loading="lazy" />
 
               <div className="absolute bottom-16 left-2 hidden items-center gap-3 rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-card md:flex">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-blue">
