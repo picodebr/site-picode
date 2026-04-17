@@ -61,7 +61,7 @@ const stats = [
 function HomePage() {
   return (
     <>
-      <section className="relative min-h-[100svh] overflow-hidden bg-background">
+      <section className="relative min-h-[100svh] overflow-hidden bg-background pb-32 md:pb-40">
         <DotsField />
         <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.14)" }} />
         <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
@@ -184,10 +184,28 @@ function HomePage() {
             </motion.div>
           </div>
         </SpotlightHero>
-      </section>
 
-      {/* hero (background) -> pillars (secondary): onda orgânica */}
-      <Wave variant="bottom" baseFill="oklch(0.995 0.003 260)" fill="oklch(0.96 0.015 255)" />
+        {/* Degradê suave + curva orgânica que fundem o hero na próxima seção, sem faixa visível */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-56 md:h-72"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent 0%, oklch(0.96 0.015 255 / 0.55) 60%, oklch(0.96 0.015 255) 100%)",
+          }}
+        />
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute inset-x-0 bottom-[-1px] block h-20 w-full md:h-28"
+        >
+          <path
+            d="M0,40 C360,110 1080,110 1440,40 L1440,120 L0,120 Z"
+            fill="oklch(0.96 0.015 255)"
+          />
+        </svg>
+      </section>
 
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
