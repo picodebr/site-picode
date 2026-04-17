@@ -184,16 +184,20 @@ function HomePage() {
             {/* Glow azul atrás */}
             <div className="absolute inset-0 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-3xl" />
 
-            <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-[2.5rem] border border-border shadow-elegant bg-card">
+            <motion.div
+              className="relative aspect-[4/5] lg:aspect-square overflow-hidden blob-shape animate-blob border border-border shadow-elegant bg-card"
+              animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
+              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            >
               <img
                 src={heroImg}
                 alt="Estudante usando a plataforma PiCode em um tablet"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 width={1536}
                 height={1280}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-            </div>
+            </motion.div>
 
             <motion.img
               src={rocketImg}
@@ -241,6 +245,20 @@ function HomePage() {
 
       {/* PILARES */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-background">
+        {/* Blobs orgânicos de fundo */}
+        <motion.div
+          className="absolute top-[15%] left-[-8%] h-[420px] w-[420px] blob-shape-2 blur-3xl"
+          style={{ background: "oklch(0.7 0.2 245 / 0.18)" }}
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 25, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl"
+          style={{ background: "oklch(0.78 0.13 220 / 0.22)" }}
+          animate={{ scale: [1, 0.9, 1], rotate: [0, -20, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        />
+
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Nossos pilares"
@@ -257,10 +275,11 @@ function HomePage() {
                 whileHover={{ y: -6 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl border border-border bg-card p-7 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
+                className="group relative rounded-3xl border border-border bg-card/80 backdrop-blur p-7 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all overflow-hidden"
               >
-                <div className="absolute top-0 left-0 h-1 w-12 bg-gradient-blue rounded-full ml-7" />
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                {/* Blob decorativo no canto */}
+                <div className="absolute -top-8 -right-8 h-28 w-28 blob-shape animate-blob bg-gradient-blue opacity-10 group-hover:opacity-25 transition-opacity duration-700" />
+                <div className="relative inline-flex h-12 w-12 items-center justify-center blob-soft bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <p.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-foreground">{p.title}</h3>
