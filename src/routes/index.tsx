@@ -132,18 +132,18 @@ function HomePage() {
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-12 flex items-center gap-8">
                 <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+9mil</p>
+                  <p className="font-display text-2xl font-bold text-foreground">+50 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">alunos impactados</p>
                 </div>
                 <div className="h-10 w-px bg-border" />
                 <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+200</p>
+                  <p className="font-display text-2xl font-bold text-foreground">+1 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">professores formados</p>
                 </div>
                 <div className="h-10 w-px bg-border" />
                 <div>
-                  <p className="font-display text-2xl font-bold text-foreground">4</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">estados</p>
+                  <p className="font-display text-2xl font-bold text-foreground">22</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">Estados do país</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -176,8 +176,8 @@ function HomePage() {
                   <Target className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-display text-sm font-bold leading-none text-foreground">93%</p>
-                  <p className="mt-1 text-[10px] text-muted-foreground">aprovam matemática</p>
+                  <p className="font-display text-sm font-bold leading-none text-foreground">98%</p>
+                  <p className="mt-1 text-[10px] text-muted-foreground">aprovação das famílias</p>
                 </div>
               </div>
             </motion.div>
