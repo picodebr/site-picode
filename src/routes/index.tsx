@@ -351,26 +351,34 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[oklch(0.13_0.04_260)] py-24 text-white">
-        <div className="absolute inset-0 bg-hero opacity-60" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute left-[20%] top-[-20%] h-[500px] w-[500px] rounded-full blur-3xl" style={{ background: "oklch(0.55 0.25 260 / 0.42)" }} />
-        <PathLines className="opacity-50" />
+      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
+        <div className="absolute right-[-8%] top-[10%] h-[360px] w-[360px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
+        <div className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
-        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="text-center lg:text-left"
-            >
-              <p className="font-display text-5xl font-bold text-gradient-blue md:text-6xl">{s.value}</p>
-              <p className="mt-2 text-sm text-white/70">{s.label}</p>
-            </motion.div>
-          ))}
+        <div className="relative mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Nosso impacto"
+            title={<>Números que <span className="text-gradient-blue">mostram resultado</span></>}
+            description="Escolas, professores e alunos transformados pela PiCode em todo o Brasil."
+          />
+
+          <div className="mt-14 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -6 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-card/85 p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
+              >
+                <div className="absolute -right-6 -top-6 h-20 w-20 blob-shape bg-gradient-blue opacity-10 transition-opacity duration-500 group-hover:opacity-25" />
+                <p className="relative font-display text-5xl font-bold text-gradient-blue md:text-6xl">{s.value}</p>
+                <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{s.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
