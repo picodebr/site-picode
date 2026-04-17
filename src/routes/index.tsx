@@ -368,7 +368,7 @@ function HomePage() {
                     <img
                       src={mockupMobile}
                       alt="Tela da plataforma PiCode no celular mostrando projetos do aluno"
-                      className="h-full w-full object-cover object-top"
+                      className="h-full w-full object-top object-fill"
                       loading="lazy"
                     />
                   </div>
