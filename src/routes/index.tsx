@@ -12,6 +12,7 @@ import { SpotlightHero } from "@/components/SpotlightHero";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
 import { Wave } from "@/components/Wave";
+import { DotsField } from "@/components/DotsField";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,12 +62,12 @@ function HomePage() {
   return (
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-background">
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
-        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
+        <DotsField />
+        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.14)" }} />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
 
         <SpotlightHero className="relative min-h-[100svh]">
-          <PathLines className="opacity-30" />
+          <PathLines className="opacity-25" />
 
           <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-2">
             <motion.div
@@ -87,13 +88,13 @@ function HomePage() {
               <div className="relative mt-6 flex gap-5">
                 <span
                   aria-hidden
-                  className="rainbow-bar mt-3 hidden h-[180px] w-[6px] shrink-0 rounded-full sm:block lg:h-[220px]"
+                  className="brand-bar mt-3 hidden h-[180px] w-[6px] shrink-0 rounded-full sm:block lg:h-[220px]"
                 />
                 <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                   <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.65 }} className="block">
                     Pensamento
                   </motion.span>
-                  <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.65 }} className="block rainbow-text">
+                  <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.65 }} className="block text-gradient-blue">
                     computacional
                   </motion.span>
                   <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38, duration: 0.65 }} className="block">

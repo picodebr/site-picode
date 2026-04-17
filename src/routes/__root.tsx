@@ -2,7 +2,6 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 import appCss from "../styles.css?url";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CursorBlob } from "@/components/CursorBlob";
 
 function NotFoundComponent() {
   return (
@@ -67,7 +66,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <CursorBlob />
       <Header />
       <main className="flex-1">
         <Outlet />
