@@ -6,7 +6,7 @@ import rocketImg from "@/assets/3d-rocket.png";
 import robotImg from "@/assets/3d-robot.png";
 import bulbImg from "@/assets/3d-bulb.png";
 import studentsImg from "@/assets/students-collab.jpg";
-import mockupMobile from "@/assets/mockup-mobile-new.png";
+import mockupMobile from "@/assets/mockup-mobile-final.jpg";
 import mockupNotebook from "@/assets/mockup-notebook.png";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
