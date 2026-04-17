@@ -11,6 +11,7 @@ import mockupNotebook from "@/assets/mockup-notebook.png";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
+import { CountUp } from "@/components/CountUp";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
 import { Wave } from "@/components/Wave";
@@ -53,11 +54,11 @@ const competencias = [
   { title: "Criatividade", desc: "Inventar soluções inéditas para desafios do mundo real." },
 ];
 
-const stats = [
-  { value: "9mil+", label: "alunos impactados" },
-  { value: "200+", label: "professores formados" },
-  { value: "93%", label: "acham que robótica facilita matemática" },
-  { value: "4", label: "estados em expansão" },
+const stats: Array<{ end: number; suffix?: string; label: string; separator?: boolean }> = [
+  { end: 9, suffix: "mil+", label: "alunos impactados", separator: false },
+  { end: 200, suffix: "+", label: "professores formados" },
+  { end: 93, suffix: "%", label: "acham que robótica facilita matemática" },
+  { end: 4, label: "estados em expansão" },
 ];
 
 function HomePage() {
@@ -431,7 +432,9 @@ function HomePage() {
                 className="group relative overflow-hidden rounded-3xl border border-border bg-card/85 p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
               >
                 <div className="absolute -right-6 -top-6 h-20 w-20 blob-shape bg-gradient-blue opacity-10 transition-opacity duration-500 group-hover:opacity-25" />
-                <p className="relative font-display text-5xl font-bold text-gradient-blue md:text-6xl">{s.value}</p>
+                <p className="relative font-display text-5xl font-bold text-gradient-blue md:text-6xl">
+                  <CountUp end={s.end} suffix={s.suffix} separator={s.separator} duration={1800 + i * 200} />
+                </p>
                 <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{s.label}</p>
               </motion.div>
             ))}
