@@ -223,10 +223,10 @@ function HomePage() {
         </div>
       </section>
 
-      {/* pillars (background) -> solutions (secondary): wave preenchida com a cor da próxima seção */}
-      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
+      {/* pillars (secondary) -> solutions (background): wave preenchida com a cor da próxima seção */}
+      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
 
-      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
+      <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="absolute right-[-12%] top-[-12%] h-[440px] w-[440px] blob-shape blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
         <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
