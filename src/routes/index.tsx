@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Code2, Brain, Lightbulb, Rocket, Target, Award, Sparkles } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import heroImg from "@/assets/hero.jpg";
 import rocketImg from "@/assets/3d-rocket.png";
 import robotImg from "@/assets/3d-robot.png";
@@ -58,206 +57,130 @@ const stats = [
 ];
 
 function HomePage() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const yRocket = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const yBulb = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const yRobot = useTransform(scrollYProgress, [0, 1], [0, 60]);
-
   return (
     <>
-      {/* HERO — claro, sóbrio, tecnológico */}
-      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-background">
+      <section className="relative min-h-[100svh] overflow-hidden bg-background">
         <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
 
-        {/* Glows azuis suaves */}
-        <motion.div
-          className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.7 0.2 245 / 0.25)" }}
-          animate={{ y: [0, 30, 0], x: [0, -20, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.55 0.2 255 / 0.18)" }}
-          animate={{ y: [0, -20, 0], x: [0, 25, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <SpotlightHero className="relative min-h-[100svh]">
+          <PathLines className="opacity-30" />
 
-        <PathLines className="opacity-40" />
-
-        <SpotlightHero className="relative mx-auto max-w-7xl px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center min-h-[100svh]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: -8 }}
+          <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display border border-primary/15"
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              EdTech para escolas
-            </motion.span>
-
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.98] tracking-tight text-foreground">
               <motion.span
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}
-                className="block"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 }}
+                className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-3 py-1.5 font-mono-display text-[11px] font-semibold uppercase tracking-[0.18em] text-primary"
               >
-                Pensamento
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                EdTech para escolas
               </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}
-                className="block text-gradient-blue"
+
+              <h1 className="mt-6 font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.65 }} className="block">
+                  Pensamento
+                </motion.span>
+                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.65 }} className="block text-gradient-blue">
+                  computacional
+                </motion.span>
+                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38, duration: 0.65 }} className="block">
+                  para toda escola.
+                </motion.span>
+              </h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.55 }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
               >
-                computacional
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
-                className="block"
+                A PiCode Education leva <strong className="text-foreground">robótica, programação e pensamento computacional</strong> para
+                dentro da sala de aula — com plataforma gamificada, kits maker e trilhas alinhadas à BNCC.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="mt-8 flex flex-wrap gap-3"
               >
-                para toda escola.
-              </motion.span>
-            </h1>
+                <Link to="/contato">
+                  <Button size="lg" className="h-12 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground shadow-glow hover:bg-primary/90">
+                    Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/solucoes">
+                  <Button size="lg" variant="outline" className="h-12 rounded-full border-foreground/15 px-7 text-sm font-semibold hover:bg-accent">
+                    Conhecer soluções
+                  </Button>
+                </Link>
+              </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-              className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
-            >
-              A PiCode Education leva <strong className="text-foreground">robótica, programação e pensamento computacional</strong> para
-              dentro da sala de aula — com plataforma gamificada, kits maker e trilhas alinhadas à BNCC.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
-              <Link to="/contato">
-                <Button
-                  size="lg"
-                  className="rounded-full h-12 px-7 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow"
-                >
-                  Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/solucoes">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full h-12 px-7 text-sm font-semibold border-foreground/15 hover:bg-accent"
-                >
-                  Conhecer soluções
-                </Button>
-              </Link>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-12 flex items-center gap-8">
+                <div>
+                  <p className="font-display text-2xl font-bold text-foreground">+9mil</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">alunos impactados</p>
+                </div>
+                <div className="h-10 w-px bg-border" />
+                <div>
+                  <p className="font-display text-2xl font-bold text-foreground">+200</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">professores formados</p>
+                </div>
+                <div className="h-10 w-px bg-border" />
+                <div>
+                  <p className="font-display text-2xl font-bold text-foreground">4</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">estados</p>
+                </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
-              className="mt-12 flex items-center gap-8"
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="relative px-6 py-8 lg:px-8"
             >
-              <div>
-                <p className="font-display text-2xl font-bold text-foreground">+9mil</p>
-                <p className="text-xs text-muted-foreground mt-0.5">alunos impactados</p>
+              <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl" />
+
+              <div className="relative aspect-[4/5] overflow-hidden border border-border bg-card shadow-elegant blob-shape lg:aspect-square">
+                <img
+                  src={heroImg}
+                  alt="Estudante usando a plataforma PiCode em um tablet"
+                  className="h-full w-full scale-110 object-cover"
+                  width={1536}
+                  height={1280}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>
-              <div className="h-10 w-px bg-border" />
-              <div>
-                <p className="font-display text-2xl font-bold text-foreground">+200</p>
-                <p className="text-xs text-muted-foreground mt-0.5">professores formados</p>
-              </div>
-              <div className="h-10 w-px bg-border" />
-              <div>
-                <p className="font-display text-2xl font-bold text-foreground">4</p>
-                <p className="text-xs text-muted-foreground mt-0.5">estados</p>
+
+              <img src={rocketImg} alt="" aria-hidden className="pointer-events-none absolute left-1 top-4 hidden h-20 w-20 drop-shadow-2xl md:block" loading="lazy" />
+              <img src={bulbImg} alt="" aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-16 w-16 drop-shadow-2xl" loading="lazy" />
+              <img src={robotImg} alt="" aria-hidden className="pointer-events-none absolute right-2 top-[42%] hidden h-18 w-18 drop-shadow-2xl lg:block" loading="lazy" />
+
+              <div className="absolute bottom-16 left-2 hidden items-center gap-3 rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-card md:flex">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-blue">
+                  <Target className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-display text-sm font-bold leading-none text-foreground">93%</p>
+                  <p className="mt-1 text-[10px] text-muted-foreground">aprovam matemática</p>
+                </div>
               </div>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative px-8 py-10"
-          >
-            {/* Glow azul atrás */}
-            <div className="absolute inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-3xl" />
-
-            <motion.div
-              className="relative aspect-[4/5] lg:aspect-square overflow-hidden blob-shape animate-blob border border-border shadow-elegant bg-card"
-              animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
-              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <img
-                src={heroImg}
-                alt="Estudante usando a plataforma PiCode em um tablet"
-                className="h-full w-full object-cover scale-110"
-                width={1536}
-                height={1280}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-            </motion.div>
-
-            <motion.img
-              src={rocketImg}
-              alt=""
-              aria-hidden
-              style={{ y: yRocket }}
-              className="absolute top-0 left-0 h-24 w-24 animate-float drop-shadow-2xl pointer-events-none"
-              loading="lazy"
-            />
-            <motion.img
-              src={bulbImg}
-              alt=""
-              aria-hidden
-              style={{ y: yBulb }}
-              className="absolute bottom-2 right-2 h-20 w-20 animate-float drop-shadow-2xl pointer-events-none"
-              loading="lazy"
-            />
-            <motion.img
-              src={robotImg}
-              alt=""
-              aria-hidden
-              style={{ y: yRobot }}
-              className="absolute top-[42%] right-0 h-20 w-20 animate-float drop-shadow-2xl pointer-events-none hidden lg:block"
-              loading="lazy"
-            />
-
-            {/* Card flutuante */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute left-2 bottom-16 hidden md:flex items-center gap-3 px-4 py-3 rounded-2xl bg-background/95 backdrop-blur-xl border border-border shadow-card"
-            >
-              <div className="h-10 w-10 rounded-xl bg-gradient-blue flex items-center justify-center shrink-0">
-                <Target className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <p className="font-display font-bold text-foreground text-sm leading-none">93%</p>
-                <p className="text-[10px] text-muted-foreground mt-1">aprovam matemática</p>
-              </div>
-            </motion.div>
-          </motion.div>
+          </div>
         </SpotlightHero>
       </section>
 
-      {/* PILARES */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-background">
-        {/* Blobs orgânicos de fundo */}
-        <motion.div
-          className="absolute top-[15%] left-[-8%] h-[420px] w-[420px] blob-shape-2 blur-3xl"
-          style={{ background: "oklch(0.7 0.2 245 / 0.18)" }}
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 25, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl"
-          style={{ background: "oklch(0.78 0.13 220 / 0.22)" }}
-          animate={{ scale: [1, 0.9, 1], rotate: [0, -20, 0] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        />
+      <section className="relative overflow-hidden bg-background py-24 md:py-32">
+        <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
+        <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
@@ -270,49 +193,30 @@ function HomePage() {
             {pillars.map((p, i) => (
               <motion.div
                 key={p.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl border border-border bg-card/80 backdrop-blur p-7 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all overflow-hidden"
+                transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-card/85 p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
               >
-                {/* Blob decorativo no canto */}
-                <div className="absolute -top-8 -right-8 h-28 w-28 blob-shape animate-blob bg-gradient-blue opacity-10 group-hover:opacity-25 transition-opacity duration-700" />
-                <div className="relative inline-flex h-12 w-12 items-center justify-center blob-soft bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="absolute -right-8 -top-8 h-28 w-28 blob-shape bg-gradient-blue opacity-10 transition-opacity duration-500 group-hover:opacity-20" />
+                <div className="relative inline-flex h-12 w-12 items-center justify-center blob-soft bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <p.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-foreground">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SOLUÇÕES */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-secondary">
+      <section className="relative overflow-hidden bg-secondary py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-30" />
-
-        {/* Blobs orgânicos animados */}
-        <motion.div
-          className="absolute top-[-12%] right-[-12%] h-[440px] w-[440px] blob-shape animate-blob blur-3xl"
-          style={{ background: "oklch(0.7 0.2 245 / 0.25)" }}
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 animate-blob blur-3xl"
-          style={{ background: "oklch(0.6 0.2 295 / 0.18)" }}
-          animate={{ scale: [1, 1.12, 1] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-        />
-        <motion.div
-          className="absolute top-[40%] left-[45%] h-[260px] w-[260px] blob-shape-3 blur-3xl opacity-50"
-          style={{ background: "oklch(0.78 0.13 220 / 0.25)" }}
-          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <div className="absolute right-[-12%] top-[-12%] h-[440px] w-[440px] blob-shape blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
+        <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
+        <div className="absolute left-[45%] top-[40%] h-[260px] w-[260px] blob-shape-3 opacity-50 blur-3xl" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
@@ -325,28 +229,24 @@ function HomePage() {
             {solutions.map((s, i) => (
               <motion.div
                 key={s.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group relative rounded-[2rem] bg-card/90 backdrop-blur border border-border p-2 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
+                transition={{ duration: 0.5, delay: i * 0.07 }}
+                className="group relative rounded-[2rem] border border-border bg-card/92 p-2 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
               >
-                <div className="relative h-44 blob-soft bg-gradient-blue overflow-hidden flex items-center justify-center">
+                <div className="relative flex h-44 items-center justify-center overflow-hidden blob-soft bg-gradient-blue">
                   <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <motion.div
-                    className="absolute -inset-4 opacity-40 blob-shape bg-white/30 blur-xl"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  />
-                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider font-mono-display border border-white/20">
+                  <div className="absolute inset-6 blob-shape bg-white/15 blur-xl" />
+                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+                  <div className="absolute right-3 top-3 rounded-full border border-white/20 bg-white/15 px-2.5 py-1 font-mono-display text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
                     {s.tag}
                   </div>
                 </div>
                 <div className="p-5">
                   <h3 className="font-display text-lg font-bold tracking-tight text-foreground">{s.name}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -354,40 +254,27 @@ function HomePage() {
         </div>
       </section>
 
-      {/* COMPETÊNCIAS */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-background">
-        <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative overflow-hidden bg-background py-24 md:py-32">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.65 }}
             className="relative"
           >
-            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-2xl" />
-            <motion.div
-              className="relative aspect-[4/3] overflow-hidden blob-shape-2 animate-blob border border-border shadow-elegant"
-              animate={{ rotate: [0, -1.5, 0, 1.5, 0] }}
-              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="absolute -inset-6 -z-10 blob-shape bg-gradient-blue opacity-20 blur-2xl" />
+            <div className="relative aspect-[4/3] overflow-hidden border border-border shadow-elegant blob-shape-2">
               <img
                 src={studentsImg}
                 alt="Alunos colaborando em projeto de robótica"
-                className="h-full w-full object-cover scale-110"
+                className="h-full w-full scale-110 object-cover"
                 loading="lazy"
                 width={1280}
                 height={896}
               />
-            </motion.div>
-            <motion.img
-              src={robotImg}
-              alt=""
-              aria-hidden
-              className="absolute -bottom-10 -right-10 h-44 w-44 animate-float drop-shadow-2xl"
-              loading="lazy"
-              whileHover={{ scale: 1.1, rotate: 8 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            />
+            </div>
+            <img src={robotImg} alt="" aria-hidden className="absolute -bottom-6 right-0 hidden h-32 w-32 drop-shadow-2xl md:block" loading="lazy" />
           </motion.div>
 
           <div>
@@ -398,7 +285,7 @@ function HomePage() {
               description="Mais do que programar: ensinar a pensar de forma estruturada para resolver qualquer problema, dentro e fora da tecnologia."
             />
 
-            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {competencias.map((c, i) => (
                 <motion.div
                   key={c.title}
@@ -406,14 +293,14 @@ function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -4 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/40 transition-colors"
+                  transition={{ duration: 0.45, delay: i * 0.07 }}
+                  className="group rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
                 >
-                  <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-mono-display font-bold text-sm">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 font-mono-display text-sm font-bold text-primary">
                     {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h4 className="mt-4 font-display font-bold text-base tracking-tight text-foreground">{c.title}</h4>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                  <h4 className="mt-4 font-display text-base font-bold tracking-tight text-foreground">{c.title}</h4>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -421,93 +308,78 @@ function HomePage() {
         </div>
       </section>
 
-      {/* PARCEIROS */}
-      <section className="py-12 border-y border-border bg-secondary/40">
+      <section className="border-y border-border bg-secondary/40 py-12">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="text-center text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-semibold font-mono-display mb-6">
+          <p className="mb-6 text-center font-mono-display text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
             Reconhecida e apoiada por
           </p>
           <PartnersMarquee />
         </div>
       </section>
 
-      {/* ESTATÍSTICAS — fundo navy */}
-      <section className="relative py-24 overflow-hidden bg-[oklch(0.13_0.04_260)] text-white">
+      <section className="relative overflow-hidden bg-[oklch(0.13_0.04_260)] py-24 text-white">
         <div className="absolute inset-0 bg-hero opacity-60" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
-        <motion.div
-          className="absolute top-[-20%] left-[20%] h-[500px] w-[500px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.55 0.25 260 / 0.55)" }}
-          animate={{ y: [0, 30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
+        <div className="absolute left-[20%] top-[-20%] h-[500px] w-[500px] rounded-full blur-3xl" style={{ background: "oklch(0.55 0.25 260 / 0.42)" }} />
         <PathLines className="opacity-50" />
 
-        <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 lg:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
               className="text-center lg:text-left"
             >
-              <p className="font-display text-5xl md:text-6xl font-bold text-gradient-blue">{s.value}</p>
+              <p className="font-display text-5xl font-bold text-gradient-blue md:text-6xl">{s.value}</p>
               <p className="mt-2 text-sm text-white/70">{s.label}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-background">
+      <section className="relative overflow-hidden bg-background py-24 md:py-32">
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight text-foreground"
+            transition={{ duration: 0.6 }}
+            className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-foreground md:text-5xl"
           >
             "65% das crianças vão trabalhar em <span className="text-gradient-blue">profissões que ainda não existem</span>."
           </motion.blockquote>
-          <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-muted-foreground font-semibold font-mono-display">
+          <p className="mt-4 font-mono-display text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
             World Economic Forum
           </p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-12 rounded-[2.5rem] bg-gradient-blue p-10 md:p-14 text-white shadow-glow relative overflow-hidden"
+            transition={{ duration: 0.65, delay: 0.18 }}
+            className="relative mt-12 overflow-hidden rounded-[2.5rem] bg-gradient-blue p-10 text-white shadow-glow md:p-14"
           >
             <div className="absolute inset-0 grid-pattern opacity-20" />
-            <div className="absolute -top-20 -right-20 h-60 w-60 blob-shape animate-blob bg-white/10 blur-2xl" />
-            <div className="absolute -bottom-20 -left-20 h-60 w-60 blob-shape animate-blob bg-white/10 blur-2xl" style={{ animationDelay: "5s" }} />
+            <div className="absolute -right-20 -top-20 h-60 w-60 blob-shape bg-white/10 blur-2xl" />
+            <div className="absolute -bottom-20 -left-20 h-60 w-60 blob-shape bg-white/10 blur-2xl" />
             <div className="relative">
-              <h3 className="font-display text-3xl md:text-4xl font-bold leading-[1.05]">
+              <h3 className="font-display text-3xl font-bold leading-[1.05] md:text-4xl">
                 Sua escola está pronta <br /> para o futuro?
               </h3>
-              <p className="mt-4 text-white/85 max-w-xl mx-auto">
+              <p className="mx-auto mt-4 max-w-xl text-white/85">
                 Receba uma proposta personalizada e descubra como a PiCode pode transformar a forma de ensinar tecnologia.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link to="/contato">
-                  <Button
-                    size="lg"
-                    className="rounded-full h-12 px-7 text-sm font-semibold bg-white text-primary hover:bg-white/90"
-                  >
+                  <Button size="lg" className="h-12 rounded-full bg-white px-7 text-sm font-semibold text-primary hover:bg-white/90">
                     Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/solucoes">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full h-12 px-7 text-sm font-semibold bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white"
-                  >
+                  <Button size="lg" variant="outline" className="h-12 rounded-full border-white/40 bg-transparent px-7 text-sm font-semibold text-white hover:bg-white/10 hover:text-white">
                     Falar com especialista
                   </Button>
                 </Link>

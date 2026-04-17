@@ -1,28 +1,46 @@
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 /**
- * Wrapper que cria um "spotlight" seguindo o cursor do mouse.
- * Usa máscara radial para fundir o efeito nas extremidades sem bordas duras.
+ * Spotlight leve para o hero inteiro, sem corte visível nas bordas.
  */
 export function SpotlightHero({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<number | null>(null);
+
+  const updatePosition = (x: number, y: number) => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (frameRef.current !== null) {
+      cancelAnimationFrame(frameRef.current);
+    }
+
+    frameRef.current = requestAnimationFrame(() => {
+      el.style.setProperty("--mx", `${x}px`);
+      el.style.setProperty("--my", `${y}px`);
+    });
+  };
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    updatePosition(e.clientX - rect.left, e.clientY - rect.top);
   };
 
-  const fadeMask =
-    "radial-gradient(ellipse 75% 70% at center, #000 35%, transparent 100%)";
+  useEffect(() => {
+    return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
       ref={ref}
       onMouseMove={handleMove}
-      className={`relative ${className}`}
+      className={`relative overflow-hidden ${className}`}
       style={{
         // @ts-expect-error css var
         "--mx": "50%",
@@ -30,12 +48,10 @@ export function SpotlightHero({ children, className = "" }: { children: ReactNod
       }}
     >
       <div
-        className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(700px circle at var(--mx) var(--my), oklch(0.7 0.2 245 / 0.16), transparent 70%)",
-          maskImage: fadeMask,
-          WebkitMaskImage: fadeMask,
+            "radial-gradient(42rem circle at var(--mx) var(--my), oklch(0.78 0.13 220 / 0.18), transparent 58%)",
         }}
         aria-hidden
       />
