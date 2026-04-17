@@ -310,7 +310,6 @@ function HomePage() {
                       loading="lazy"
                     />
                   </div>
-                  </div>
                 </div>
                 <div className="relative mx-auto h-3 w-[110%] -translate-x-[5%] rounded-b-2xl bg-foreground shadow-card">
                   <div className="absolute left-1/2 top-0 h-1 w-16 -translate-x-1/2 rounded-b-lg bg-background/20" />
