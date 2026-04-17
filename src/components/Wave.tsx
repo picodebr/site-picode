@@ -14,22 +14,23 @@ export function Wave({
   fill?: string;
   flip?: boolean;
 }) {
-  // Curva única, suave; "bottom" desce da seção atual e "top" sobe da próxima.
+  // Curva muito sutil — quase uma linha levemente arqueada, sem efeito "sugado".
+  // viewBox alto + altura renderizada baixa = curva discreta e elegante.
   const path =
     variant === "bottom"
-      ? "M0,0 C360,90 1080,90 1440,0 L1440,120 L0,120 Z"
-      : "M0,120 C360,30 1080,30 1440,120 L1440,0 L0,0 Z";
+      ? "M0,0 C480,28 960,28 1440,0 L1440,40 L0,40 Z"
+      : "M0,40 C480,12 960,12 1440,40 L1440,0 L0,0 Z";
 
   return (
     <div
       className={`pointer-events-none block w-full ${className}`}
-      style={{ transform: flip ? "scaleX(-1)" : undefined, lineHeight: 0 }}
+      style={{ transform: flip ? "scaleX(-1)" : undefined, lineHeight: 0, marginTop: -1, marginBottom: -1 }}
       aria-hidden
     >
       <svg
-        viewBox="0 0 1440 120"
+        viewBox="0 0 1440 40"
         preserveAspectRatio="none"
-        className="block h-[60px] w-full md:h-[90px]"
+        className="block h-[28px] w-full md:h-[40px]"
       >
         <path d={path} fill={fill} />
       </svg>
