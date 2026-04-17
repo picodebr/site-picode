@@ -1,26 +1,343 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Sparkles, Code2, Brain, Users, Lightbulb, Rocket, Target, TrendingUp, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import heroImg from "@/assets/hero.jpg";
+import rocketImg from "@/assets/3d-rocket.png";
+import robotImg from "@/assets/3d-robot.png";
+import bulbImg from "@/assets/3d-bulb.png";
+import studentsImg from "@/assets/students-collab.jpg";
+import { PathLines } from "@/components/PathLines";
+import { SectionHeading } from "@/components/SectionHeading";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "PiCode Education — Pensamento Computacional para escolas" },
+      {
+        name: "description",
+        content:
+          "Plataforma gamificada e kits de robótica para levar o pensamento computacional para a sala de aula. Mais de 9 mil alunos impactados.",
+      },
+      { property: "og:title", content: "PiCode Education — Pensamento Computacional" },
+      { property: "og:description", content: "Plataforma e kits que transformam a forma de ensinar tecnologia nas escolas." },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+const pillars = [
+  { icon: Code2, title: "Tecnologia", desc: "Ferramenta para ampliar acesso ao conhecimento.", gradient: "bg-gradient-blue" },
+  { icon: Sparkles, title: "Criatividade", desc: "Força motriz da inovação e da resolução de problemas.", gradient: "bg-gradient-green" },
+  { icon: Rocket, title: "Construção", desc: "Processo contínuo de desenvolvimento e aprendizado.", gradient: "bg-gradient-red" },
+  { icon: Lightbulb, title: "Educação", desc: "Base para um futuro mais justo e promissor.", gradient: "bg-gradient-yellow" },
+];
 
-function Index() {
-  return <PlaceholderIndex />;
+const solutions = [
+  {
+    name: "Code Lab",
+    tag: "Plataforma",
+    desc: "Ambiente para organizar projetos, turmas e trilhas de programação em um só lugar.",
+    gradient: "bg-gradient-blue",
+    icon: Code2,
+  },
+  {
+    name: "Vision Lab",
+    tag: "IA & Visão",
+    desc: "Experimente projetos com visão computacional e inteligência artificial em sala.",
+    gradient: "bg-gradient-purple",
+    icon: Brain,
+  },
+  {
+    name: "Estoque Maker",
+    tag: "Hardware",
+    desc: "Gestão completa dos kits didáticos da escola com controle por turma.",
+    gradient: "bg-gradient-green",
+    icon: Target,
+  },
+  {
+    name: "Trilhas BNCC",
+    tag: "Conteúdo",
+    desc: "Currículo de pensamento computacional alinhado à Base Nacional Comum.",
+    gradient: "bg-gradient-red",
+    icon: Award,
+  },
+];
+
+const competencias = [
+  { title: "Raciocínio lógico", desc: "Decompor problemas e estruturar soluções passo a passo." },
+  { title: "Pensamento crítico", desc: "Avaliar caminhos, depurar erros e iterar com clareza." },
+  { title: "Colaboração", desc: "Construir em time, dividir responsabilidades e revisar ideias." },
+  { title: "Criatividade", desc: "Inventar soluções inéditas para desafios do mundo real." },
+];
+
+const stats = [
+  { value: "9mil+", label: "alunos impactados" },
+  { value: "200+", label: "professores formados" },
+  { value: "93%", label: "dizem que robótica facilita matemática" },
+  { value: "4", label: "estados em expansão" },
+];
+
+function HomePage() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative min-h-[100svh] overflow-hidden bg-[oklch(0.13_0.04_260)] text-white">
+        <div className="absolute inset-0 bg-hero" />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <PathLines />
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center min-h-[100svh]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold uppercase tracking-wider text-white/90">
+              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.13_220)] animate-pulse" />
+              EdTech para escolas
+            </span>
+
+            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-[0.92] tracking-tight">
+              Pensamento <br />
+              <span className="text-gradient-blue">computacional</span> <br />
+              para toda escola.
+            </h1>
+
+            <p className="mt-6 max-w-xl text-base md:text-lg text-white/70 leading-relaxed">
+              A PiCode Education traz <strong className="text-white">soluções tecnológicas para as escolas</strong>:
+              kits didáticos de robótica, plataformas gamificadas e trilhas alinhadas à BNCC.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/contato">
+                <Button size="lg" className="bg-gradient-blue text-white shadow-glow hover:opacity-90 h-12 px-6">
+                  Agendar uma demo <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/solucoes">
+                <Button size="lg" variant="outline" className="h-12 px-6 bg-white/5 backdrop-blur border-white/20 text-white hover:bg-white/10 hover:text-white">
+                  Conhecer soluções
+                </Button>
+              </Link>
+            </div>
+
+            <div className="mt-10 flex items-center gap-6 text-xs text-white/60">
+              <div>
+                <p className="font-display text-2xl font-bold text-white">+9mil</p>
+                <p>alunos impactados</p>
+              </div>
+              <div className="h-10 w-px bg-white/15" />
+              <div>
+                <p className="font-display text-2xl font-bold text-white">+200</p>
+                <p>professores formados</p>
+              </div>
+              <div className="h-10 w-px bg-white/15" />
+              <div>
+                <p className="font-display text-2xl font-bold text-white">4</p>
+                <p>estados</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <div className="relative aspect-[4/5] lg:aspect-square rounded-3xl overflow-hidden shadow-glow border border-white/10">
+              <img
+                src={heroImg}
+                alt="Estudante usando a plataforma PiCode em um tablet"
+                className="h-full w-full object-cover"
+                width={1536}
+                height={1280}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.13_0.04_260)] via-transparent to-transparent" />
+            </div>
+
+            <motion.img
+              src={rocketImg}
+              alt=""
+              aria-hidden
+              className="absolute -top-6 -left-6 h-24 w-24 animate-float drop-shadow-2xl"
+              loading="lazy"
+            />
+            <motion.img
+              src={bulbImg}
+              alt=""
+              aria-hidden
+              className="absolute -bottom-4 -right-4 h-20 w-20 animate-float drop-shadow-2xl"
+              style={{ animationDelay: "1.5s" }}
+              loading="lazy"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PILARES */}
+      <section className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Nossos pilares"
+            title={<>Quatro forças que <span className="text-gradient-blue">movem a marca</span></>}
+            description="Tecnologia, criatividade, construção e educação. Uma base que orienta cada produto, conteúdo e experiência da PiCode."
+          />
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative rounded-3xl border border-border bg-card p-6 shadow-card hover:shadow-elegant transition-all hover:-translate-y-1"
+              >
+                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ${p.gradient} text-white shadow-lg`}>
+                  <p.icon className="h-7 w-7" />
+                </div>
+                <h3 className="mt-5 font-display text-xl font-bold uppercase tracking-tight">{p.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SOLUÇÕES — estilo Hub */}
+      <section className="relative py-24 md:py-32 bg-[oklch(0.97_0.01_260)] dark:bg-secondary overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="relative mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Plataforma PiCode"
+            title={<>Um <span className="text-gradient-blue">ecossistema</span> completo para a escola</>}
+            description="Tudo que professor, aluno e gestor precisam para ensinar pensamento computacional, em uma única plataforma moderna."
+          />
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {solutions.map((s, i) => (
+              <motion.div
+                key={s.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative rounded-3xl bg-card border border-border p-2 shadow-card hover:shadow-elegant transition-all"
+              >
+                <div className={`relative h-44 rounded-2xl ${s.gradient} overflow-hidden flex items-center justify-center`}>
+                  <div className="absolute inset-0 grid-pattern opacity-20" />
+                  <s.icon className="relative h-16 w-16 text-white/90 drop-shadow-lg" />
+                  <div className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/20 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider">
+                    {s.tag}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-bold tracking-tight">{s.name}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* COMPETÊNCIAS DO PENSAMENTO COMPUTACIONAL */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-elegant">
+              <img
+                src={studentsImg}
+                alt="Alunos colaborando em projeto de robótica"
+                className="h-full w-full object-cover"
+                loading="lazy"
+                width={1280}
+                height={896}
+              />
+            </div>
+            <img
+              src={robotImg}
+              alt=""
+              aria-hidden
+              className="absolute -bottom-8 -right-8 h-40 w-40 animate-float drop-shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+
+          <div>
+            <SectionHeading
+              align="left"
+              eyebrow="Pensamento Computacional"
+              title={<>Habilidades para <span className="text-gradient-blue">o século 21</span></>}
+              description="Mais do que programar: ensinar a pensar de forma estruturada para resolver qualquer problema, dentro e fora da tecnologia."
+            />
+
+            <div className="mt-10 grid sm:grid-cols-2 gap-5">
+              {competencias.map((c) => (
+                <div key={c.title} className="rounded-2xl border border-border bg-card p-5">
+                  <h4 className="font-display font-bold uppercase text-sm tracking-wide">{c.title}</h4>
+                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ESTATÍSTICAS */}
+      <section className="relative py-20 bg-[oklch(0.13_0.04_260)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-hero opacity-60" />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <PathLines className="opacity-60" />
+
+        <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center lg:text-left">
+              <p className="font-display text-5xl md:text-6xl font-bold text-gradient-blue tag-bracket">{s.value}</p>
+              <p className="mt-2 text-sm text-white/70">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* QUOTE / CTA */}
+      <section className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <TrendingUp className="mx-auto h-12 w-12 text-primary" />
+          <blockquote className="mt-6 font-display text-3xl md:text-5xl font-bold uppercase leading-[1.05] tracking-tight">
+            "65% das crianças vão trabalhar em <span className="text-gradient-blue">profissões que ainda não existem</span>."
+          </blockquote>
+          <p className="mt-4 text-sm uppercase tracking-wider text-muted-foreground font-semibold">
+            — World Economic Forum
+          </p>
+
+          <div className="mt-12 rounded-3xl bg-gradient-blue p-10 md:p-14 text-white shadow-glow relative overflow-hidden">
+            <div className="absolute inset-0 grid-pattern opacity-20" />
+            <div className="relative">
+              <h3 className="font-display text-3xl md:text-4xl font-bold uppercase">
+                Sua escola está pronta <br /> para o futuro?
+              </h3>
+              <p className="mt-4 text-white/85 max-w-xl mx-auto">
+                Receba uma proposta personalizada e descubra como a PiCode pode transformar a forma de ensinar tecnologia.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link to="/contato">
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 h-12 px-6">
+                    Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/solucoes">
+                  <Button size="lg" variant="outline" className="h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white">
+                    <Users className="mr-2 h-4 w-4" /> Falar com especialista
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
