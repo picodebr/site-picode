@@ -11,6 +11,7 @@ import mockupNotebook from "@/assets/mockup-notebook.png";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
+import { CountUp } from "@/components/CountUp";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
 import { Wave } from "@/components/Wave";
