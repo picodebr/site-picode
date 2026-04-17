@@ -186,9 +186,10 @@ function HomePage() {
         </SpotlightHero>
       </section>
 
-      {/* hero e pillars compartilham bg-background — sem onda entre eles */}
+      {/* hero (background) -> pillars (secondary): onda orgânica */}
+      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
 
-      <section className="relative overflow-hidden bg-background py-20 md:py-28">
+      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
