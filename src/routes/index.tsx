@@ -259,7 +259,10 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-background py-24 md:py-32">
+      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" className="-mt-1 relative z-10" />
+
+      <section className="relative overflow-hidden bg-background py-20 md:py-28">
+        <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
         <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
