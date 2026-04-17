@@ -51,7 +51,7 @@ export function SpotlightHero({ children, className = "" }: { children: ReactNod
         className="pointer-events-none absolute inset-0 opacity-80"
         style={{
           background:
-            "radial-gradient(42rem circle at var(--mx) var(--my), oklch(0.78 0.13 220 / 0.18), transparent 58%)",
+            "radial-gradient(56rem circle at var(--mx) var(--my), oklch(0.78 0.13 220 / 0.16), transparent 68%)",
         }}
         aria-hidden
       />
