@@ -412,7 +412,7 @@ function HomePage() {
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         {/* Vídeo de fundo em loop, quase transparente */}
         <video
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.18]"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.32]"
           autoPlay
           loop
           muted
@@ -420,13 +420,10 @@ function HomePage() {
           preload="auto"
           aria-hidden="true"
         >
-          <source
-            src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_25fps.mp4"
-            type="video/mp4"
-          />
+          <source src="/impact-bg.mp4" type="video/mp4" />
         </video>
         {/* Véu para suavizar o vídeo e manter a leitura */}
-        <div className="pointer-events-none absolute inset-0 bg-secondary/75" />
+        <div className="pointer-events-none absolute inset-0 bg-secondary/60" />
 
         <div className="absolute right-[-8%] top-[10%] h-[360px] w-[360px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
