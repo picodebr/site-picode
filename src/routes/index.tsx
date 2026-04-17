@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
+import { Wave } from "@/components/Wave";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,8 +62,8 @@ function HomePage() {
     <>
       <section className="relative min-h-[100svh] overflow-hidden bg-background">
         <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
-        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
+        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.12)" }} />
 
         <SpotlightHero className="relative min-h-[100svh]">
           <PathLines className="opacity-30" />
@@ -147,9 +148,9 @@ function HomePage() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="relative px-6 py-8 lg:px-8"
             >
-              <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl" />
+              <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-25 blur-3xl animate-pulse-soft" />
 
-              <div className="relative aspect-[4/5] overflow-hidden border border-border bg-card shadow-elegant blob-shape lg:aspect-square">
+              <div className="relative aspect-[4/5] overflow-hidden border border-border bg-card shadow-elegant blob-shape animate-blob lg:aspect-square">
                 <img
                   src={heroImg}
                   alt="Estudante usando a plataforma PiCode em um tablet"
@@ -160,9 +161,9 @@ function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>
 
-              <img src={rocketImg} alt="" aria-hidden className="pointer-events-none absolute left-1 top-4 hidden h-20 w-20 drop-shadow-2xl md:block" loading="lazy" />
-              <img src={bulbImg} alt="" aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-16 w-16 drop-shadow-2xl" loading="lazy" />
-              <img src={robotImg} alt="" aria-hidden className="pointer-events-none absolute right-2 top-[42%] hidden h-18 w-18 drop-shadow-2xl lg:block" loading="lazy" />
+              <img src={rocketImg} alt="" aria-hidden className="pointer-events-none absolute left-1 top-4 hidden h-20 w-20 drop-shadow-2xl animate-float md:block" loading="lazy" />
+              <img src={bulbImg} alt="" aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-16 w-16 drop-shadow-2xl animate-float-slow" loading="lazy" />
+              <img src={robotImg} alt="" aria-hidden className="pointer-events-none absolute right-2 top-[42%] hidden h-20 w-20 drop-shadow-2xl animate-float lg:block" loading="lazy" />
 
               <div className="absolute bottom-16 left-2 hidden items-center gap-3 rounded-2xl border border-border bg-background/95 px-4 py-3 shadow-card md:flex">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-blue">
@@ -178,9 +179,11 @@ function HomePage() {
         </SpotlightHero>
       </section>
 
-      <section className="relative overflow-hidden bg-background py-24 md:py-32">
-        <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
-        <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
+      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" className="-mt-20 md:-mt-28 relative z-10" />
+
+      <section className="relative overflow-hidden bg-background py-20 md:py-28">
+        <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
+        <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
@@ -212,11 +215,13 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-secondary py-24 md:py-32">
+      <Wave variant="top" fill="oklch(0.995 0.003 260)" className="-mb-1 relative z-10" />
+
+      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute right-[-12%] top-[-12%] h-[440px] w-[440px] blob-shape blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
-        <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
-        <div className="absolute left-[45%] top-[40%] h-[260px] w-[260px] blob-shape-3 opacity-50 blur-3xl" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
+        <div className="absolute right-[-12%] top-[-12%] h-[440px] w-[440px] blob-shape blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
+        <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
+        <div className="absolute left-[45%] top-[40%] h-[260px] w-[260px] blob-shape-3 opacity-50 blur-3xl animate-pulse-soft" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
@@ -254,7 +259,10 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-background py-24 md:py-32">
+      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" className="-mt-1 relative z-10" />
+
+      <section className="relative overflow-hidden bg-background py-20 md:py-28">
+        <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
         <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
