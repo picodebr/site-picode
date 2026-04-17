@@ -302,52 +302,14 @@ function HomePage() {
             <div className="relative">
               <div className="relative mx-auto w-full max-w-[520px]">
                 <div className="relative rounded-t-2xl border-[10px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-gradient-to-br from-background to-secondary">
-                    <div className="flex items-center gap-1.5 border-b border-border bg-card/80 px-3 py-2">
-                      <span className="h-2 w-2 rounded-full bg-red-400" />
-                      <span className="h-2 w-2 rounded-full bg-yellow-400" />
-                      <span className="h-2 w-2 rounded-full bg-green-400" />
-                      <div className="ml-2 flex-1 truncate rounded-md bg-background/70 px-2 py-0.5 font-mono-display text-[8px] text-muted-foreground">
-                        app.picode.education/code-lab
-                      </div>
-                    </div>
-                    <div className="grid h-[calc(100%-26px)] grid-cols-[80px_1fr] gap-2 p-3">
-                      <div className="space-y-2">
-                        {[Code2, Brain, Target, Award].map((Icon, idx) => (
-                          <div
-                            key={idx}
-                            className={`flex h-9 items-center justify-center rounded-lg ${
-                              idx === 0 ? "bg-gradient-blue text-white" : "border border-border bg-card text-muted-foreground"
-                            }`}
-                          >
-                            <Icon className="h-4 w-4" />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <div className="h-3 w-24 rounded bg-foreground/80" />
-                          <div className="h-5 w-16 rounded-full bg-gradient-blue" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-2">
-                          {[0, 1, 2].map((i) => (
-                            <div key={i} className="rounded-lg border border-border bg-card p-2">
-                              <div className="h-6 w-6 rounded bg-gradient-blue opacity-80" />
-                              <div className="mt-2 h-1.5 w-full rounded bg-muted" />
-                              <div className="mt-1 h-1.5 w-2/3 rounded bg-muted" />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="rounded-lg border border-border bg-card p-2">
-                          <div className="h-1.5 w-1/3 rounded bg-foreground/60" />
-                          <div className="mt-2 flex items-end gap-1.5">
-                            {[40, 70, 55, 90, 65, 80].map((h, i) => (
-                              <div key={i} className="flex-1 rounded-sm bg-gradient-blue" style={{ height: `${h * 0.35}px` }} />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-background">
+                    <img
+                      src={mockupNotebook}
+                      alt="Tela da plataforma PiCode no notebook mostrando o ambiente de programação em blocos"
+                      className="h-full w-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </div>
                   </div>
                 </div>
                 <div className="relative mx-auto h-3 w-[110%] -translate-x-[5%] rounded-b-2xl bg-foreground shadow-card">
