@@ -187,7 +187,7 @@ function HomePage() {
       </section>
 
       {/* hero (background) -> pillars (secondary): onda orgânica */}
-      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
+      <Wave variant="bottom" baseFill="oklch(0.995 0.003 260)" fill="oklch(0.96 0.015 255)" />
 
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
@@ -224,7 +224,7 @@ function HomePage() {
       </section>
 
       {/* pillars (secondary) -> solutions (background): wave preenchida com a cor da próxima seção */}
-      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
+      <Wave variant="bottom" baseFill="oklch(0.96 0.015 255)" fill="oklch(0.995 0.003 260)" />
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
