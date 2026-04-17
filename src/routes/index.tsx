@@ -38,10 +38,10 @@ const pillars = [
 ];
 
 const solutions = [
-  { name: "Code Lab", tag: "Plataforma", desc: "Ambiente para organizar projetos, turmas e trilhas em um só lugar.", icon: Code2 },
+  { name: "Code Lab", tag: "Plataforma", desc: "Ambiente próprio de programação e desenvolvimento de códigos.", icon: Code2 },
   { name: "Vision Lab", tag: "IA & Visão", desc: "Projetos com visão computacional e inteligência artificial em sala.", icon: Brain },
-  { name: "Estoque Maker", tag: "Hardware", desc: "Gestão dos kits didáticos da escola com controle por turma.", icon: Target },
-  { name: "Trilhas BNCC", tag: "Conteúdo", desc: "Currículo de pensamento computacional alinhado à Base Nacional.", icon: Award },
+  { name: "Gamificação", tag: "FINANCEIRO", desc: "Funcionalidade para negociação e transação de itens pela plataforma com gamificação financeira.", icon: Target },
+  { name: "Desempenho", tag: "Conteúdo", desc: "Acompanhe o desenvolvimento individual e coletivo dos alunos com indicadores e métricas por IA.", icon: Award },
 ];
 
 const competencias = [
