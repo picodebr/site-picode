@@ -245,43 +245,157 @@ function HomePage() {
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
-        
-        
-        <div className="absolute left-[45%] top-[40%] h-[260px] w-[260px] blob-shape-3 opacity-50 blur-3xl animate-pulse-soft" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
+        <div className="absolute right-[-10%] top-[20%] h-[420px] w-[420px] blob-shape-2 opacity-60 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
+        <div className="absolute left-[-8%] bottom-[10%] h-[320px] w-[320px] blob-shape-3 opacity-50 blur-3xl animate-pulse-soft" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
-        <div className="relative mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Plataforma PiCode"
-            title={<>Um <span className="text-gradient-blue">ecossistema</span> completo para a escola</>}
-            description="Tudo que professor, aluno e gestor precisam para ensinar pensamento computacional, em uma única plataforma moderna."
-          />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
+          {/* Texto à esquerda */}
+          <div>
+            <SectionHeading
+              align="left"
+              eyebrow="Plataforma PiCode"
+              title={<>Um <span className="text-gradient-blue">ecossistema</span> completo para a escola</>}
+              description="Tudo que professor, aluno e gestor precisam para ensinar pensamento computacional, em uma única plataforma moderna."
+            />
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {solutions.map((s, i) => (
-              <motion.div
-                key={s.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -8 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                className="group relative rounded-[2rem] border border-border bg-card/92 p-2 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
-              >
-                <div className="relative flex h-44 items-center justify-center overflow-hidden blob-soft bg-gradient-blue">
-                  <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <div className="absolute inset-6 blob-shape bg-white/15 blur-xl" />
-                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
-                  <div className="absolute right-3 top-3 rounded-full border border-white/20 bg-white/15 px-2.5 py-1 font-mono-display text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
-                    {s.tag}
+            <div className="mt-10 grid gap-3 sm:grid-cols-2">
+              {solutions.map((s, i) => (
+                <motion.div
+                  key={s.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -3 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
+                  className="group flex items-start gap-3 rounded-2xl border border-border bg-card/90 p-4 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-blue text-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-display text-sm font-bold tracking-tight text-foreground">{s.name}</h3>
+                      <span className="rounded-full bg-primary/10 px-2 py-0.5 font-mono-display text-[9px] font-semibold uppercase tracking-wider text-primary">
+                        {s.tag}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{s.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mockups à direita */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mx-auto w-full max-w-xl"
+          >
+            <div className="absolute -inset-10 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl animate-pulse-soft" />
+
+            {/* Notebook mockup */}
+            <div className="relative">
+              <div className="relative mx-auto w-full max-w-[520px]">
+                <div className="relative rounded-t-2xl border-[10px] border-foreground bg-foreground shadow-elegant">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-gradient-to-br from-background to-secondary">
+                    <div className="flex items-center gap-1.5 border-b border-border bg-card/80 px-3 py-2">
+                      <span className="h-2 w-2 rounded-full bg-red-400" />
+                      <span className="h-2 w-2 rounded-full bg-yellow-400" />
+                      <span className="h-2 w-2 rounded-full bg-green-400" />
+                      <div className="ml-2 flex-1 truncate rounded-md bg-background/70 px-2 py-0.5 font-mono-display text-[8px] text-muted-foreground">
+                        app.picode.education/code-lab
+                      </div>
+                    </div>
+                    <div className="grid h-[calc(100%-26px)] grid-cols-[80px_1fr] gap-2 p-3">
+                      <div className="space-y-2">
+                        {[Code2, Brain, Target, Award].map((Icon, idx) => (
+                          <div
+                            key={idx}
+                            className={`flex h-9 items-center justify-center rounded-lg ${
+                              idx === 0 ? "bg-gradient-blue text-white" : "border border-border bg-card text-muted-foreground"
+                            }`}
+                          >
+                            <Icon className="h-4 w-4" />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="h-3 w-24 rounded bg-foreground/80" />
+                          <div className="h-5 w-16 rounded-full bg-gradient-blue" />
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                          {[0, 1, 2].map((i) => (
+                            <div key={i} className="rounded-lg border border-border bg-card p-2">
+                              <div className="h-6 w-6 rounded bg-gradient-blue opacity-80" />
+                              <div className="mt-2 h-1.5 w-full rounded bg-muted" />
+                              <div className="mt-1 h-1.5 w-2/3 rounded bg-muted" />
+                            </div>
+                          ))}
+                        </div>
+                        <div className="rounded-lg border border-border bg-card p-2">
+                          <div className="h-1.5 w-1/3 rounded bg-foreground/60" />
+                          <div className="mt-2 flex items-end gap-1.5">
+                            {[40, 70, 55, 90, 65, 80].map((h, i) => (
+                              <div key={i} className="flex-1 rounded-sm bg-gradient-blue" style={{ height: `${h * 0.35}px` }} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-bold tracking-tight text-foreground">{s.name}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                <div className="relative mx-auto h-3 w-[110%] -translate-x-[5%] rounded-b-2xl bg-foreground shadow-card">
+                  <div className="absolute left-1/2 top-0 h-1 w-16 -translate-x-1/2 rounded-b-lg bg-background/20" />
+                </div>
+              </div>
+
+              {/* Celular sobreposto */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="absolute -bottom-8 -left-4 w-[140px] sm:-left-8 sm:w-[170px]"
+              >
+                <div className="relative rounded-[2rem] border-[6px] border-foreground bg-foreground shadow-elegant">
+                  <div className="relative aspect-[9/19] overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-background to-secondary">
+                    <div className="absolute left-1/2 top-1.5 z-10 h-3 w-12 -translate-x-1/2 rounded-full bg-foreground" />
+                    <div className="flex h-full flex-col p-2 pt-6">
+                      <div className="flex items-center justify-between">
+                        <div className="h-2 w-12 rounded bg-foreground/80" />
+                        <div className="h-5 w-5 rounded-full bg-gradient-blue" />
+                      </div>
+                      <div className="mt-2 rounded-lg bg-gradient-blue p-2 text-white">
+                        <Sparkles className="h-3 w-3" />
+                        <div className="mt-1 h-1.5 w-3/4 rounded bg-white/70" />
+                        <div className="mt-1 h-1 w-1/2 rounded bg-white/40" />
+                      </div>
+                      <div className="mt-2 space-y-1.5">
+                        {[0, 1, 2].map((i) => (
+                          <div key={i} className="flex items-center gap-1.5 rounded-md border border-border bg-card p-1.5">
+                            <div className="h-4 w-4 shrink-0 rounded bg-gradient-blue opacity-80" />
+                            <div className="flex-1 space-y-0.5">
+                              <div className="h-1 w-full rounded bg-muted" />
+                              <div className="h-1 w-2/3 rounded bg-muted" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-auto flex items-center justify-around border-t border-border pt-1.5">
+                        {[Code2, Brain, Target].map((Icon, i) => (
+                          <Icon key={i} className={`h-3 w-3 ${i === 0 ? "text-primary" : "text-muted-foreground"}`} />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
