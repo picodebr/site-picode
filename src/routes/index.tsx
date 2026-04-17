@@ -246,7 +246,7 @@ function HomePage() {
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         
-        <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
+        
         <div className="absolute left-[45%] top-[40%] h-[260px] w-[260px] blob-shape-3 opacity-50 blur-3xl animate-pulse-soft" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
         <div className="relative mx-auto max-w-7xl px-6">
