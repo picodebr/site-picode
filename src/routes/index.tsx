@@ -292,12 +292,26 @@ function HomePage() {
 
       {/* SOLUÇÕES */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-secondary">
-        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+
+        {/* Blobs orgânicos animados */}
         <motion.div
-          className="absolute top-[-10%] right-[-10%] h-[400px] w-[400px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.7 0.2 245 / 0.2)" }}
-          animate={{ y: [0, 25, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-12%] right-[-12%] h-[440px] w-[440px] blob-shape animate-blob blur-3xl"
+          style={{ background: "oklch(0.7 0.2 245 / 0.25)" }}
+          animate={{ scale: [1, 1.08, 1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 animate-blob blur-3xl"
+          style={{ background: "oklch(0.6 0.2 295 / 0.18)" }}
+          animate={{ scale: [1, 1.12, 1] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        />
+        <motion.div
+          className="absolute top-[40%] left-[45%] h-[260px] w-[260px] blob-shape-3 blur-3xl opacity-50"
+          style={{ background: "oklch(0.78 0.13 220 / 0.25)" }}
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -313,15 +327,19 @@ function HomePage() {
                 key={s.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -8 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group relative rounded-3xl bg-card border border-border p-2 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
+                className="group relative rounded-[2rem] bg-card/90 backdrop-blur border border-border p-2 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
               >
-                <div className="relative h-44 rounded-2xl bg-gradient-blue overflow-hidden flex items-center justify-center">
+                <div className="relative h-44 blob-soft bg-gradient-blue overflow-hidden flex items-center justify-center">
                   <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <div className="absolute -inset-4 opacity-30 blob-shape animate-blob bg-white/30 blur-xl" />
-                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500" />
+                  <motion.div
+                    className="absolute -inset-4 opacity-40 blob-shape bg-white/30 blur-xl"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  />
+                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider font-mono-display border border-white/20">
                     {s.tag}
                   </div>
