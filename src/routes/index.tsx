@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
 import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
+import { Wave } from "@/components/Wave";
 import { DotsField } from "@/components/DotsField";
 
 export const Route = createFileRoute("/")({
