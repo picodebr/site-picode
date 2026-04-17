@@ -179,10 +179,10 @@ function HomePage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative px-8 py-10"
           >
             {/* Glow azul atrás */}
-            <div className="absolute inset-0 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-3xl" />
+            <div className="absolute inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-3xl" />
 
             <motion.div
               className="relative aspect-[4/5] lg:aspect-square overflow-hidden blob-shape animate-blob border border-border shadow-elegant bg-card"
@@ -204,7 +204,7 @@ function HomePage() {
               alt=""
               aria-hidden
               style={{ y: yRocket }}
-              className="absolute -top-10 -left-10 h-28 w-28 animate-float drop-shadow-2xl"
+              className="absolute top-0 left-0 h-24 w-24 animate-float drop-shadow-2xl pointer-events-none"
               loading="lazy"
             />
             <motion.img
@@ -212,7 +212,7 @@ function HomePage() {
               alt=""
               aria-hidden
               style={{ y: yBulb }}
-              className="absolute -bottom-8 -right-8 h-24 w-24 animate-float drop-shadow-2xl"
+              className="absolute bottom-2 right-2 h-20 w-20 animate-float drop-shadow-2xl pointer-events-none"
               loading="lazy"
             />
             <motion.img
@@ -220,7 +220,7 @@ function HomePage() {
               alt=""
               aria-hidden
               style={{ y: yRobot }}
-              className="absolute top-[40%] -right-12 h-24 w-24 animate-float drop-shadow-2xl hidden lg:block"
+              className="absolute top-[42%] right-0 h-20 w-20 animate-float drop-shadow-2xl pointer-events-none hidden lg:block"
               loading="lazy"
             />
 
@@ -229,9 +229,9 @@ function HomePage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute -left-4 bottom-10 hidden md:flex items-center gap-3 px-4 py-3 rounded-2xl bg-background/90 backdrop-blur-xl border border-border shadow-card"
+              className="absolute left-2 bottom-16 hidden md:flex items-center gap-3 px-4 py-3 rounded-2xl bg-background/95 backdrop-blur-xl border border-border shadow-card"
             >
-              <div className="h-10 w-10 rounded-xl bg-gradient-blue flex items-center justify-center">
+              <div className="h-10 w-10 rounded-xl bg-gradient-blue flex items-center justify-center shrink-0">
                 <Target className="h-5 w-5 text-white" />
               </div>
               <div>
