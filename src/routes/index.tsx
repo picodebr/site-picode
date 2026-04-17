@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Code2, Brain, Users, Lightbulb, Rocket, Target, TrendingUp, Award } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import heroImg from "@/assets/hero.jpg";
 import rocketImg from "@/assets/3d-rocket.png";
 import robotImg from "@/assets/3d-robot.png";
@@ -9,6 +10,9 @@ import studentsImg from "@/assets/students-collab.jpg";
 import { PathLines } from "@/components/PathLines";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
+import { SpotlightHero } from "@/components/SpotlightHero";
+import { Wave } from "@/components/Wave";
+import { PartnersMarquee } from "@/components/PartnersMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,34 +38,10 @@ const pillars = [
 ];
 
 const solutions = [
-  {
-    name: "Code Lab",
-    tag: "Plataforma",
-    desc: "Ambiente para organizar projetos, turmas e trilhas de programação em um só lugar.",
-    gradient: "bg-gradient-blue",
-    icon: Code2,
-  },
-  {
-    name: "Vision Lab",
-    tag: "IA & Visão",
-    desc: "Experimente projetos com visão computacional e inteligência artificial em sala.",
-    gradient: "bg-gradient-purple",
-    icon: Brain,
-  },
-  {
-    name: "Estoque Maker",
-    tag: "Hardware",
-    desc: "Gestão completa dos kits didáticos da escola com controle por turma.",
-    gradient: "bg-gradient-green",
-    icon: Target,
-  },
-  {
-    name: "Trilhas BNCC",
-    tag: "Conteúdo",
-    desc: "Currículo de pensamento computacional alinhado à Base Nacional Comum.",
-    gradient: "bg-gradient-red",
-    icon: Award,
-  },
+  { name: "Code Lab", tag: "Plataforma", desc: "Ambiente para organizar projetos, turmas e trilhas de programação em um só lugar.", gradient: "bg-gradient-blue", icon: Code2 },
+  { name: "Vision Lab", tag: "IA & Visão", desc: "Experimente projetos com visão computacional e inteligência artificial em sala.", gradient: "bg-gradient-purple", icon: Brain },
+  { name: "Estoque Maker", tag: "Hardware", desc: "Gestão completa dos kits didáticos da escola com controle por turma.", gradient: "bg-gradient-green", icon: Target },
+  { name: "Trilhas BNCC", tag: "Conteúdo", desc: "Currículo de pensamento computacional alinhado à Base Nacional Comum.", gradient: "bg-gradient-red", icon: Award },
 ];
 
 const competencias = [
@@ -79,50 +59,93 @@ const stats = [
 ];
 
 function HomePage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const yRocket = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const yBulb = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const heroFade = useTransform(scrollYProgress, [0, 0.8], [1, 0.3]);
+
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[100svh] overflow-hidden bg-[oklch(0.13_0.04_260)] text-white">
+      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-[oklch(0.13_0.04_260)] text-white">
         <div className="absolute inset-0 bg-hero" />
         <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute inset-0 noise" />
+
+        {/* Blobs orgânicos animados */}
+        <div className="glow-orb animate-float-slow" style={{ width: 500, height: 500, top: "-10%", left: "-10%", background: "oklch(0.55 0.25 260)" }} />
+        <div className="glow-orb animate-float-slow" style={{ width: 400, height: 400, bottom: "-15%", right: "-5%", background: "oklch(0.6 0.22 295)", animationDelay: "4s" }} />
+        <div className="glow-orb animate-float-slow" style={{ width: 350, height: 350, top: "30%", right: "20%", background: "oklch(0.78 0.13 220)", animationDelay: "8s", opacity: 0.35 }} />
+
         <PathLines />
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center min-h-[100svh]">
+        <SpotlightHero className="relative mx-auto max-w-7xl px-6 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center min-h-[100svh]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            style={{ opacity: heroFade }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold uppercase tracking-wider text-white/90">
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold uppercase tracking-wider text-white/90"
+            >
               <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.78_0.13_220)] animate-pulse" />
               EdTech para escolas
-            </span>
+            </motion.span>
 
             <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase leading-[0.92] tracking-tight">
-              Pensamento <br />
-              <span className="text-gradient-blue">computacional</span> <br />
-              para toda escola.
+              <motion.span
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.7 }}
+                className="block"
+              >
+                Pensamento
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}
+                className="block text-gradient-blue"
+              >
+                computacional
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }}
+                className="block"
+              >
+                para toda escola.
+              </motion.span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base md:text-lg text-white/70 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+              className="mt-6 max-w-xl text-base md:text-lg text-white/70 leading-relaxed"
+            >
               A PiCode Education traz <strong className="text-white">soluções tecnológicas para as escolas</strong>:
               kits didáticos de robótica, plataformas gamificadas e trilhas alinhadas à BNCC.
-            </p>
+            </motion.p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
               <Link to="/contato">
-                <Button size="lg" className="bg-gradient-blue text-white shadow-glow hover:opacity-90 h-12 px-6">
+                <Button size="lg" className="bg-gradient-blue text-white shadow-glow hover:opacity-90 hover:scale-105 transition-transform h-12 px-6">
                   Agendar uma demo <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/solucoes">
-                <Button size="lg" variant="outline" className="h-12 px-6 bg-white/5 backdrop-blur border-white/20 text-white hover:bg-white/10 hover:text-white">
+                <Button size="lg" variant="outline" className="h-12 px-6 bg-white/5 backdrop-blur border-white/20 text-white hover:bg-white/10 hover:text-white hover:scale-105 transition-transform">
                   Conhecer soluções
                 </Button>
               </Link>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 flex items-center gap-6 text-xs text-white/60">
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
+              className="mt-10 flex items-center gap-6 text-xs text-white/60"
+            >
               <div>
                 <p className="font-display text-2xl font-bold text-white">+9mil</p>
                 <p>alunos impactados</p>
@@ -137,7 +160,7 @@ function HomePage() {
                 <p className="font-display text-2xl font-bold text-white">4</p>
                 <p>estados</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -146,11 +169,14 @@ function HomePage() {
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] lg:aspect-square rounded-3xl overflow-hidden shadow-glow border border-white/10">
+            {/* Blob orgânico atrás da imagem */}
+            <div className="absolute inset-0 -z-10 blob-shape animate-blob bg-gradient-to-br from-[oklch(0.5_0.22_260)] to-[oklch(0.55_0.2_295)] opacity-60 blur-3xl" />
+
+            <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden shadow-glow border border-white/10 blob-shape animate-blob">
               <img
                 src={heroImg}
                 alt="Estudante usando a plataforma PiCode em um tablet"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 width={1536}
                 height={1280}
               />
@@ -161,24 +187,48 @@ function HomePage() {
               src={rocketImg}
               alt=""
               aria-hidden
-              className="absolute -top-6 -left-6 h-24 w-24 animate-float drop-shadow-2xl"
+              style={{ y: yRocket }}
+              className="absolute -top-8 -left-8 h-28 w-28 animate-float drop-shadow-2xl"
               loading="lazy"
             />
             <motion.img
               src={bulbImg}
               alt=""
               aria-hidden
-              className="absolute -bottom-4 -right-4 h-20 w-20 animate-float drop-shadow-2xl"
-              style={{ animationDelay: "1.5s" }}
+              style={{ y: yBulb }}
+              className="absolute -bottom-6 -right-6 h-24 w-24 animate-float drop-shadow-2xl"
               loading="lazy"
             />
+
+            {/* Card flutuante estilo "métrica" */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="absolute -left-4 bottom-12 hidden md:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl"
+            >
+              <div className="h-10 w-10 rounded-xl bg-gradient-green flex items-center justify-center">
+                <TrendingUp className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="font-display font-bold text-white text-sm">93%</p>
+                <p className="text-[10px] text-white/70">aprovam matemática</p>
+              </div>
+            </motion.div>
           </motion.div>
+        </SpotlightHero>
+
+        {/* Wave separator */}
+        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+          <Wave variant="bottom" fill="var(--background)" />
         </div>
       </section>
 
       {/* PILARES */}
-      <section className="relative py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="glow-orb animate-float-slow" style={{ width: 400, height: 400, top: "10%", right: "-10%", background: "oklch(0.78 0.13 220)", opacity: 0.2 }} />
+
+        <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Nossos pilares"
             title={<>Quatro forças que <span className="text-gradient-blue">movem a marca</span></>}
@@ -189,13 +239,14 @@ function HomePage() {
             {pillars.map((p, i) => (
               <motion.div
                 key={p.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative rounded-3xl border border-border bg-card p-6 shadow-card hover:shadow-elegant transition-all hover:-translate-y-1"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative rounded-3xl border border-border bg-card p-6 shadow-card tilt-card hover:shadow-elegant"
               >
-                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ${p.gradient} text-white shadow-lg`}>
+                <div className={`absolute -top-3 -right-3 h-20 w-20 ${p.gradient} blob-shape animate-blob opacity-30 blur-xl`} />
+                <div className={`relative inline-flex h-14 w-14 items-center justify-center rounded-2xl ${p.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                   <p.icon className="h-7 w-7" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-bold uppercase tracking-tight">{p.title}</h3>
@@ -209,6 +260,9 @@ function HomePage() {
       {/* SOLUÇÕES — estilo Hub */}
       <section className="relative py-24 md:py-32 bg-[oklch(0.97_0.01_260)] dark:bg-secondary overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="glow-orb animate-float-slow" style={{ width: 500, height: 500, top: "-10%", left: "-10%", background: "oklch(0.6 0.2 295)", opacity: 0.18 }} />
+        <div className="glow-orb animate-float-slow" style={{ width: 450, height: 450, bottom: "-10%", right: "-10%", background: "oklch(0.72 0.18 155)", opacity: 0.15, animationDelay: "5s" }} />
+
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Plataforma PiCode"
@@ -220,15 +274,16 @@ function HomePage() {
             {solutions.map((s, i) => (
               <motion.div
                 key={s.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative rounded-3xl bg-card border border-border p-2 shadow-card hover:shadow-elegant transition-all"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group relative rounded-3xl bg-card border border-border p-2 shadow-card tilt-card hover:shadow-elegant"
               >
                 <div className={`relative h-44 rounded-2xl ${s.gradient} overflow-hidden flex items-center justify-center`}>
                   <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <s.icon className="relative h-16 w-16 text-white/90 drop-shadow-lg" />
+                  <div className="absolute -inset-4 opacity-30 blob-shape animate-blob bg-white/30 blur-xl" />
+                  <s.icon className="relative h-16 w-16 text-white/95 drop-shadow-lg group-hover:scale-125 group-hover:rotate-6 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/20 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider">
                     {s.tag}
                   </div>
@@ -243,28 +298,39 @@ function HomePage() {
         </div>
       </section>
 
-      {/* COMPETÊNCIAS DO PENSAMENTO COMPUTACIONAL */}
+      {/* COMPETÊNCIAS */}
       <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-elegant">
+        <div className="glow-orb animate-float-slow" style={{ width: 500, height: 500, top: "20%", left: "-15%", background: "oklch(0.62 0.22 25)", opacity: 0.12 }} />
+
+        <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-to-br from-[oklch(0.55_0.2_255)] to-[oklch(0.78_0.13_220)] opacity-30 blur-2xl" />
+            <div className="relative aspect-[4/3] overflow-hidden shadow-elegant blob-shape animate-blob">
               <img
                 src={studentsImg}
                 alt="Alunos colaborando em projeto de robótica"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 loading="lazy"
                 width={1280}
                 height={896}
               />
             </div>
-            <img
+            <motion.img
               src={robotImg}
               alt=""
               aria-hidden
-              className="absolute -bottom-8 -right-8 h-40 w-40 animate-float drop-shadow-2xl"
+              className="absolute -bottom-10 -right-10 h-44 w-44 animate-float drop-shadow-2xl"
               loading="lazy"
+              whileHover={{ scale: 1.1, rotate: 8 }}
+              transition={{ type: "spring", stiffness: 200 }}
             />
-          </div>
+          </motion.div>
 
           <div>
             <SectionHeading
@@ -275,46 +341,94 @@ function HomePage() {
             />
 
             <div className="mt-10 grid sm:grid-cols-2 gap-5">
-              {competencias.map((c) => (
-                <div key={c.title} className="rounded-2xl border border-border bg-card p-5">
-                  <h4 className="font-display font-bold uppercase text-sm tracking-wide">{c.title}</h4>
+              {competencias.map((c, i) => (
+                <motion.div
+                  key={c.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group rounded-2xl border border-border bg-card p-5 hover:border-primary hover:-translate-y-1 transition-all"
+                >
+                  <h4 className="font-display font-bold uppercase text-sm tracking-wide group-hover:text-primary transition-colors">{c.title}</h4>
                   <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
+      {/* PARCEIROS — marquee */}
+      <section className="py-12 border-y border-border bg-muted/30">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-6">
+            Reconhecida e apoiada por
+          </p>
+          <PartnersMarquee />
+        </div>
+      </section>
+
       {/* ESTATÍSTICAS */}
-      <section className="relative py-20 bg-[oklch(0.13_0.04_260)] text-white overflow-hidden">
+      <section className="relative py-24 bg-[oklch(0.13_0.04_260)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-hero opacity-60" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="glow-orb animate-float-slow" style={{ width: 500, height: 500, top: "-20%", left: "20%", background: "oklch(0.55 0.25 260)" }} />
         <PathLines className="opacity-60" />
 
         <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center lg:text-left">
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="text-center lg:text-left"
+            >
               <p className="font-display text-5xl md:text-6xl font-bold text-gradient-blue tag-bracket">{s.value}</p>
               <p className="mt-2 text-sm text-white/70">{s.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* QUOTE / CTA */}
-      <section className="relative py-24 md:py-32">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <TrendingUp className="mx-auto h-12 w-12 text-primary" />
-          <blockquote className="mt-6 font-display text-3xl md:text-5xl font-bold uppercase leading-[1.05] tracking-tight">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="glow-orb animate-float-slow" style={{ width: 500, height: 500, top: "10%", right: "-10%", background: "oklch(0.6 0.2 295)", opacity: 0.15 }} />
+
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <TrendingUp className="mx-auto h-12 w-12 text-primary" />
+          </motion.div>
+          <motion.blockquote
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-6 font-display text-3xl md:text-5xl font-bold uppercase leading-[1.05] tracking-tight"
+          >
             "65% das crianças vão trabalhar em <span className="text-gradient-blue">profissões que ainda não existem</span>."
-          </blockquote>
+          </motion.blockquote>
           <p className="mt-4 text-sm uppercase tracking-wider text-muted-foreground font-semibold">
             — World Economic Forum
           </p>
 
-          <div className="mt-12 rounded-3xl bg-gradient-blue p-10 md:p-14 text-white shadow-glow relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-12 rounded-[2.5rem] bg-gradient-blue p-10 md:p-14 text-white shadow-glow relative overflow-hidden"
+          >
             <div className="absolute inset-0 grid-pattern opacity-20" />
+            <div className="absolute -top-20 -right-20 h-60 w-60 blob-shape animate-blob bg-white/10 blur-2xl" />
+            <div className="absolute -bottom-20 -left-20 h-60 w-60 blob-shape animate-blob bg-white/10 blur-2xl" style={{ animationDelay: "5s" }} />
             <div className="relative">
               <h3 className="font-display text-3xl md:text-4xl font-bold uppercase">
                 Sua escola está pronta <br /> para o futuro?
@@ -324,18 +438,18 @@ function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link to="/contato">
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 h-12 px-6">
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-transform h-12 px-6">
                     Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/solucoes">
-                  <Button size="lg" variant="outline" className="h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white">
+                  <Button size="lg" variant="outline" className="h-12 px-6 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:scale-105 transition-transform">
                     <Users className="mr-2 h-4 w-4" /> Falar com especialista
                   </Button>
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
