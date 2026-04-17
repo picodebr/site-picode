@@ -186,9 +186,10 @@ function HomePage() {
         </SpotlightHero>
       </section>
 
-      {/* hero e pillars compartilham bg-background — sem onda entre eles */}
+      {/* hero (background) -> pillars (secondary): onda orgânica */}
+      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
 
-      <section className="relative overflow-hidden bg-background py-20 md:py-28">
+      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
@@ -222,10 +223,10 @@ function HomePage() {
         </div>
       </section>
 
-      {/* pillars (background) -> solutions (secondary): wave preenchida com a cor da próxima seção */}
-      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
+      {/* pillars (secondary) -> solutions (background): wave preenchida com a cor da próxima seção */}
+      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
 
-      <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
+      <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="absolute right-[-12%] top-[-12%] h-[440px] w-[440px] blob-shape blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.16)" }} />
         <div className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.6 0.2 295 / 0.12)" }} />
@@ -267,8 +268,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* solutions (secondary) -> competencies (background): wave com cor da próxima seção */}
-      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
+      {/* solutions e competencies compartilham bg-background — sem onda */}
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
