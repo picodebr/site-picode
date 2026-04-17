@@ -268,8 +268,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* solutions (secondary) -> competencies (background): wave com cor da próxima seção */}
-      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
+      {/* solutions e competencies compartilham bg-background — sem onda */}
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
