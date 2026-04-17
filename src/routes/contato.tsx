@@ -24,17 +24,20 @@ function ContatoPage() {
 
   return (
     <>
-      <section className="relative pt-40 pb-16 bg-[oklch(0.13_0.04_260)] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-hero" />
-        <PathLines />
+      <section className="relative pt-40 pb-20 bg-background text-foreground overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="absolute top-[10%] right-[-8%] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.22)" }} />
+        <div className="absolute bottom-[-10%] left-[-8%] h-[380px] w-[380px] blob-shape blur-3xl" style={{ background: "oklch(0.55 0.2 255 / 0.18)" }} />
+        <PathLines className="opacity-40" />
         <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             Fale conosco
           </span>
-          <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold uppercase leading-[0.95]">
+          <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
             Vamos transformar <br /><span className="text-gradient-blue">sua escola juntos</span>
           </h1>
-          <p className="mt-6 text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Conte um pouco sobre sua escola e vamos preparar uma proposta personalizada para você.
           </p>
         </div>
