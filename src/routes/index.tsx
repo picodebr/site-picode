@@ -184,16 +184,20 @@ function HomePage() {
             {/* Glow azul atrás */}
             <div className="absolute inset-0 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-3xl" />
 
-            <div className="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-[2.5rem] border border-border shadow-elegant bg-card">
+            <motion.div
+              className="relative aspect-[4/5] lg:aspect-square overflow-hidden blob-shape animate-blob border border-border shadow-elegant bg-card"
+              animate={{ rotate: [0, 1.5, 0, -1.5, 0] }}
+              transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            >
               <img
                 src={heroImg}
                 alt="Estudante usando a plataforma PiCode em um tablet"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 width={1536}
                 height={1280}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-            </div>
+            </motion.div>
 
             <motion.img
               src={rocketImg}
@@ -241,6 +245,20 @@ function HomePage() {
 
       {/* PILARES */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-background">
+        {/* Blobs orgânicos de fundo */}
+        <motion.div
+          className="absolute top-[15%] left-[-8%] h-[420px] w-[420px] blob-shape-2 blur-3xl"
+          style={{ background: "oklch(0.7 0.2 245 / 0.18)" }}
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 25, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl"
+          style={{ background: "oklch(0.78 0.13 220 / 0.22)" }}
+          animate={{ scale: [1, 0.9, 1], rotate: [0, -20, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        />
+
         <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Nossos pilares"
@@ -257,10 +275,11 @@ function HomePage() {
                 whileHover={{ y: -6 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative rounded-3xl border border-border bg-card p-7 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
+                className="group relative rounded-3xl border border-border bg-card/80 backdrop-blur p-7 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all overflow-hidden"
               >
-                <div className="absolute top-0 left-0 h-1 w-12 bg-gradient-blue rounded-full ml-7" />
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                {/* Blob decorativo no canto */}
+                <div className="absolute -top-8 -right-8 h-28 w-28 blob-shape animate-blob bg-gradient-blue opacity-10 group-hover:opacity-25 transition-opacity duration-700" />
+                <div className="relative inline-flex h-12 w-12 items-center justify-center blob-soft bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <p.icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-foreground">{p.title}</h3>
@@ -273,12 +292,26 @@ function HomePage() {
 
       {/* SOLUÇÕES */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-secondary">
-        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+
+        {/* Blobs orgânicos animados */}
         <motion.div
-          className="absolute top-[-10%] right-[-10%] h-[400px] w-[400px] rounded-full blur-3xl"
-          style={{ background: "oklch(0.7 0.2 245 / 0.2)" }}
-          animate={{ y: [0, 25, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-12%] right-[-12%] h-[440px] w-[440px] blob-shape animate-blob blur-3xl"
+          style={{ background: "oklch(0.7 0.2 245 / 0.25)" }}
+          animate={{ scale: [1, 1.08, 1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[-8%] left-[-12%] h-[400px] w-[400px] blob-shape-2 animate-blob blur-3xl"
+          style={{ background: "oklch(0.6 0.2 295 / 0.18)" }}
+          animate={{ scale: [1, 1.12, 1] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        />
+        <motion.div
+          className="absolute top-[40%] left-[45%] h-[260px] w-[260px] blob-shape-3 blur-3xl opacity-50"
+          style={{ background: "oklch(0.78 0.13 220 / 0.25)" }}
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -294,15 +327,19 @@ function HomePage() {
                 key={s.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -8 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group relative rounded-3xl bg-card border border-border p-2 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
+                className="group relative rounded-[2rem] bg-card/90 backdrop-blur border border-border p-2 shadow-card hover:shadow-elegant hover:border-primary/30 transition-all"
               >
-                <div className="relative h-44 rounded-2xl bg-gradient-blue overflow-hidden flex items-center justify-center">
+                <div className="relative h-44 blob-soft bg-gradient-blue overflow-hidden flex items-center justify-center">
                   <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <div className="absolute -inset-4 opacity-30 blob-shape animate-blob bg-white/30 blur-xl" />
-                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500" />
+                  <motion.div
+                    className="absolute -inset-4 opacity-40 blob-shape bg-white/30 blur-xl"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  />
+                  <s.icon className="relative h-16 w-16 text-white drop-shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur text-[10px] font-semibold text-white uppercase tracking-wider font-mono-display border border-white/20">
                     {s.tag}
                   </div>
@@ -327,17 +364,21 @@ function HomePage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-25 blur-2xl" />
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] border border-border shadow-elegant">
+            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-2xl" />
+            <motion.div
+              className="relative aspect-[4/3] overflow-hidden blob-shape-2 animate-blob border border-border shadow-elegant"
+              animate={{ rotate: [0, -1.5, 0, 1.5, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            >
               <img
                 src={studentsImg}
                 alt="Alunos colaborando em projeto de robótica"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 loading="lazy"
                 width={1280}
                 height={896}
               />
-            </div>
+            </motion.div>
             <motion.img
               src={robotImg}
               alt=""

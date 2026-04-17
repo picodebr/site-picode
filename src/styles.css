@@ -240,6 +240,9 @@
   .tag-bracket::after { content: "/>"; opacity: 0.5; margin-left: 2px; }
 
   .blob-shape { border-radius: 42% 58% 70% 30% / 45% 55% 45% 55%; }
+  .blob-shape-2 { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+  .blob-shape-3 { border-radius: 38% 62% 33% 67% / 56% 41% 59% 44%; }
+  .blob-soft { border-radius: 58% 42% 45% 55% / 52% 48% 52% 48%; }
 
   .tilt-card { transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth); }
   .tilt-card:hover { transform: perspective(1000px) rotateX(2deg) rotateY(-4deg) translateY(-6px); }
