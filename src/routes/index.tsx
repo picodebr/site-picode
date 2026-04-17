@@ -186,7 +186,7 @@ function HomePage() {
         </SpotlightHero>
       </section>
 
-      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" className="-mt-20 md:-mt-28 relative z-10" />
+      {/* hero e pillars compartilham bg-background — sem onda entre eles */}
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
@@ -222,7 +222,8 @@ function HomePage() {
         </div>
       </section>
 
-      <Wave variant="top" fill="oklch(0.995 0.003 260)" className="-mb-1 relative z-10" />
+      {/* pillars (background) -> solutions (secondary): wave preenchida com a cor da próxima seção */}
+      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" />
 
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -266,7 +267,8 @@ function HomePage() {
         </div>
       </section>
 
-      <Wave variant="bottom" fill="oklch(0.96 0.015 255)" className="-mt-1 relative z-10" />
+      {/* solutions (secondary) -> competencies (background): wave com cor da próxima seção */}
+      <Wave variant="bottom" fill="oklch(0.995 0.003 260)" />
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
