@@ -67,7 +67,6 @@ function HomePage() {
         <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
 
         <SpotlightHero className="relative min-h-[calc(100svh+8rem)] md:min-h-[calc(100svh+10rem)]">
-          <PathLines className="opacity-25" />
 
           <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-2">
             <motion.div
