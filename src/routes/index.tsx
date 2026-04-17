@@ -8,6 +8,7 @@ import bulbImg from "@/assets/3d-bulb.png";
 import studentsImg from "@/assets/students-collab.jpg";
 import mockupMobile from "@/assets/mockup-mobile-final.jpg";
 import mockupNotebook from "@/assets/mockup-notebook.png";
+import impactBgVideo from "@/assets/impact-bg-web.mp4";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
@@ -412,16 +413,16 @@ function HomePage() {
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         {/* Vídeo de fundo em loop, quase transparente */}
         <video
+          key={impactBgVideo}
+          src={impactBgVideo}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.32]"
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
-        >
-          <source src="/impact-bg.mp4" type="video/mp4" />
-        </video>
+        />
         {/* Véu para suavizar o vídeo e manter a leitura */}
         <div className="pointer-events-none absolute inset-0 bg-secondary/60" />
 
