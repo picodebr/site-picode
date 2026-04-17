@@ -264,6 +264,53 @@
   .marquee-mask {
     mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   }
+
+  /* Barra arco-íris vertical (referência: antigravity.google) */
+  .rainbow-bar {
+    background: linear-gradient(
+      180deg,
+      oklch(0.7 0.2 245) 0%,
+      oklch(0.6 0.2 295) 30%,
+      oklch(0.62 0.22 25) 55%,
+      oklch(0.85 0.16 90) 78%,
+      oklch(0.72 0.18 155) 100%
+    );
+    filter: blur(0.5px);
+  }
+  .rainbow-text {
+    background: linear-gradient(
+      90deg,
+      oklch(0.7 0.2 245),
+      oklch(0.6 0.2 295),
+      oklch(0.62 0.22 25),
+      oklch(0.85 0.16 90),
+      oklch(0.72 0.18 155)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Botão pill preto estilo antigravity */
+  .btn-ink {
+    background: oklch(0.16 0.04 260);
+    color: oklch(0.99 0 0);
+    transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth), background 0.25s;
+  }
+  .btn-ink:hover {
+    background: oklch(0.22 0.06 260);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px -12px oklch(0.16 0.04 260 / 0.55);
+  }
+  .btn-soft {
+    background: oklch(0.95 0.01 255);
+    color: oklch(0.18 0.05 260);
+    transition: transform 0.25s var(--ease-smooth), background 0.25s;
+  }
+  .btn-soft:hover {
+    background: oklch(0.92 0.015 255);
+    transform: translateY(-1px);
+  }
 }
 
 @keyframes float {

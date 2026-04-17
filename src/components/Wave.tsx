@@ -25,7 +25,7 @@ export function Wave({
 
   return (
     <div
-      className={`pointer-events-none relative w-full ${className}`}
+      className={`pointer-events-none w-full ${className}`}
       style={{ transform: flip ? "scaleX(-1)" : undefined }}
       aria-hidden
     >
