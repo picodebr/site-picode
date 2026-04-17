@@ -6,7 +6,8 @@ import rocketImg from "@/assets/3d-rocket.png";
 import robotImg from "@/assets/3d-robot.png";
 import bulbImg from "@/assets/3d-bulb.png";
 import studentsImg from "@/assets/students-collab.jpg";
-import mockupMobile from "@/assets/mockup-mobile-new.png";
+import mockupPhoneReal from "@/assets/mockup-phone-real.png";
+import mockupLaptopReal from "@/assets/mockup-laptop-real.png";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { SpotlightHero } from "@/components/SpotlightHero";
@@ -297,82 +298,31 @@ function HomePage() {
           >
             <div className="absolute -inset-10 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl animate-pulse-soft" />
 
-            {/* Notebook mockup */}
+            {/* Notebook mockup realista */}
             <div className="relative">
-              <div className="relative mx-auto w-full max-w-[520px]">
-                <div className="relative rounded-t-2xl border-[10px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-gradient-to-br from-background to-secondary">
-                    <div className="flex items-center gap-1.5 border-b border-border bg-card/80 px-3 py-2">
-                      <span className="h-2 w-2 rounded-full bg-red-400" />
-                      <span className="h-2 w-2 rounded-full bg-yellow-400" />
-                      <span className="h-2 w-2 rounded-full bg-green-400" />
-                      <div className="ml-2 flex-1 truncate rounded-md bg-background/70 px-2 py-0.5 font-mono-display text-[8px] text-muted-foreground">
-                        app.picode.education/code-lab
-                      </div>
-                    </div>
-                    <div className="grid h-[calc(100%-26px)] grid-cols-[80px_1fr] gap-2 p-3">
-                      <div className="space-y-2">
-                        {[Code2, Brain, Target, Award].map((Icon, idx) => (
-                          <div
-                            key={idx}
-                            className={`flex h-9 items-center justify-center rounded-lg ${
-                              idx === 0 ? "bg-gradient-blue text-white" : "border border-border bg-card text-muted-foreground"
-                            }`}
-                          >
-                            <Icon className="h-4 w-4" />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <div className="h-3 w-24 rounded bg-foreground/80" />
-                          <div className="h-5 w-16 rounded-full bg-gradient-blue" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-2">
-                          {[0, 1, 2].map((i) => (
-                            <div key={i} className="rounded-lg border border-border bg-card p-2">
-                              <div className="h-6 w-6 rounded bg-gradient-blue opacity-80" />
-                              <div className="mt-2 h-1.5 w-full rounded bg-muted" />
-                              <div className="mt-1 h-1.5 w-2/3 rounded bg-muted" />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="rounded-lg border border-border bg-card p-2">
-                          <div className="h-1.5 w-1/3 rounded bg-foreground/60" />
-                          <div className="mt-2 flex items-end gap-1.5">
-                            {[40, 70, 55, 90, 65, 80].map((h, i) => (
-                              <div key={i} className="flex-1 rounded-sm bg-gradient-blue" style={{ height: `${h * 0.35}px` }} />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative mx-auto h-3 w-[110%] -translate-x-[5%] rounded-b-2xl bg-foreground shadow-card">
-                  <div className="absolute left-1/2 top-0 h-1 w-16 -translate-x-1/2 rounded-b-lg bg-background/20" />
-                </div>
-              </div>
+              <img
+                src={mockupLaptopReal}
+                alt="Plataforma PiCode rodando em um notebook"
+                className="relative w-full drop-shadow-2xl"
+                loading="lazy"
+                width={1920}
+                height={1080}
+              />
 
-              {/* Celular sobreposto */}
+              {/* Celular realista sobreposto */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.25 }}
-                className="absolute -bottom-8 -left-4 w-[140px] sm:-left-8 sm:w-[170px]"
+                className="absolute -bottom-10 -left-2 w-[150px] sm:-left-6 sm:w-[190px] md:w-[210px]"
               >
-                <div className="relative rounded-[2rem] border-[6px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[9/19] overflow-hidden rounded-[1.5rem] bg-background">
-                    <div className="absolute left-1/2 top-1.5 z-10 h-3 w-12 -translate-x-1/2 rounded-full bg-foreground" />
-                    <img
-                      src={mockupMobile}
-                      alt="Tela da plataforma PiCode no celular mostrando projetos do aluno"
-                      className="h-full w-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+                <img
+                  src={mockupPhoneReal}
+                  alt="Tela da plataforma PiCode no celular mostrando projetos do aluno"
+                  className="w-full drop-shadow-2xl"
+                  loading="lazy"
+                />
               </motion.div>
             </div>
           </motion.div>
