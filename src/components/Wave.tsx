@@ -7,15 +7,18 @@ export function Wave({
   variant = "bottom",
   className = "",
   fill = "var(--background)",
+  baseFill = "transparent",
   flip = false,
 }: {
   variant?: "top" | "bottom";
   className?: string;
   fill?: string;
+  baseFill?: string;
   flip?: boolean;
 }) {
   // Curva muito sutil — quase uma linha levemente arqueada, sem efeito "sugado".
-  // viewBox alto + altura renderizada baixa = curva discreta e elegante.
+  // `baseFill` pinta a área transparente do SVG com a cor da seção anterior,
+  // evitando faixas/brancos entre blocos.
   const path =
     variant === "bottom"
       ? "M0,0 C480,28 960,28 1440,0 L1440,40 L0,40 Z"
@@ -24,7 +27,13 @@ export function Wave({
   return (
     <div
       className={`pointer-events-none block w-full ${className}`}
-      style={{ transform: flip ? "scaleX(-1)" : undefined, lineHeight: 0, marginTop: -1, marginBottom: -1 }}
+      style={{
+        transform: flip ? "scaleX(-1)" : undefined,
+        lineHeight: 0,
+        marginTop: -1,
+        marginBottom: -1,
+        background: baseFill,
+      }}
       aria-hidden
     >
       <svg
