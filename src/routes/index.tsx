@@ -410,6 +410,24 @@ function HomePage() {
       </section>
 
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
+        {/* Vídeo de fundo em loop, quase transparente */}
+        <video
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12] mix-blend-multiply"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source
+            src="https://cdn.coverr.co/videos/coverr-coding-on-a-laptop-1584/1080p.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Véu para suavizar o vídeo e manter a leitura */}
+        <div className="pointer-events-none absolute inset-0 bg-secondary/70" />
+
         <div className="absolute right-[-8%] top-[10%] h-[360px] w-[360px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
