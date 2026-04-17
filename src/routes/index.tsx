@@ -364,17 +364,21 @@ function HomePage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-25 blur-2xl" />
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2.5rem] border border-border shadow-elegant">
+            <div className="absolute -inset-6 -z-10 blob-shape animate-blob bg-gradient-blue opacity-30 blur-2xl" />
+            <motion.div
+              className="relative aspect-[4/3] overflow-hidden blob-shape-2 animate-blob border border-border shadow-elegant"
+              animate={{ rotate: [0, -1.5, 0, 1.5, 0] }}
+              transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            >
               <img
                 src={studentsImg}
                 alt="Alunos colaborando em projeto de robótica"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover scale-110"
                 loading="lazy"
                 width={1280}
                 height={896}
               />
-            </div>
+            </motion.div>
             <motion.img
               src={robotImg}
               alt=""
