@@ -413,16 +413,16 @@ function HomePage() {
       <section className="relative overflow-hidden bg-secondary py-20 md:py-28">
         {/* Vídeo de fundo em loop, quase transparente */}
         <video
+          key={impactBgVideo}
+          src={impactBgVideo}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.32]"
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
-        >
-          <source src={impactBgVideo} type="video/mp4" />
-        </video>
+        />
         {/* Véu para suavizar o vídeo e manter a leitura */}
         <div className="pointer-events-none absolute inset-0 bg-secondary/60" />
 
