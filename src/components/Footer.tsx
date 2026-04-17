@@ -33,9 +33,9 @@ export function Footer() {
               Contato
             </h4>
             <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> contato@picode.com.br</li>
-              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</li>
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Sorocaba, SP</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /><span>contato@picode.com.br</span></li>
+              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /><span>WhatsApp</span></li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /><span>Sorocaba, SP</span></li>
             </ul>
           </div>
         </div>
