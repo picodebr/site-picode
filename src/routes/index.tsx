@@ -84,17 +84,23 @@ function HomePage() {
                 EdTech para escolas
               </motion.span>
 
-              <h1 className="mt-6 font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.65 }} className="block">
-                  Pensamento
-                </motion.span>
-                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.65 }} className="block text-gradient-blue">
-                  computacional
-                </motion.span>
-                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38, duration: 0.65 }} className="block">
-                  para toda escola.
-                </motion.span>
-              </h1>
+              <div className="relative mt-6 flex gap-5">
+                <span
+                  aria-hidden
+                  className="rainbow-bar mt-3 hidden h-[180px] w-[6px] shrink-0 rounded-full sm:block lg:h-[220px]"
+                />
+                <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                  <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.65 }} className="block">
+                    Pensamento
+                  </motion.span>
+                  <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24, duration: 0.65 }} className="block rainbow-text">
+                    computacional
+                  </motion.span>
+                  <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38, duration: 0.65 }} className="block">
+                    para toda escola.
+                  </motion.span>
+                </h1>
+              </div>
 
               <motion.p
                 initial={{ opacity: 0 }}
@@ -113,12 +119,12 @@ function HomePage() {
                 className="mt-8 flex flex-wrap gap-3"
               >
                 <Link to="/contato">
-                  <Button size="lg" className="h-12 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground shadow-glow hover:bg-primary/90">
+                  <Button size="lg" className="btn-ink h-12 rounded-full px-7 text-sm font-semibold">
                     Agendar demonstração <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/solucoes">
-                  <Button size="lg" variant="outline" className="h-12 rounded-full border-foreground/15 px-7 text-sm font-semibold hover:bg-accent">
+                  <Button size="lg" variant="ghost" className="btn-soft h-12 rounded-full px-7 text-sm font-semibold">
                     Conhecer soluções
                   </Button>
                 </Link>
