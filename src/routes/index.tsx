@@ -58,7 +58,7 @@ const stats: Array<{ end: number; suffix?: string; label: string; separator?: bo
   { end: 50, suffix: "mil+", label: "alunos impactados", separator: false },
   { end: 1000, suffix: "+", label: "professores formados" },
   { end: 98, suffix: "%", label: "das famílias aprovam a metodologia" },
-  { end: 200, suffix: " mil+", label: "projetos desenvolvidos" },
+  { end: 100, suffix: " mil+", label: "projetos autorais" },
 ];
 
 function HomePage() {
@@ -146,8 +146,8 @@ function HomePage() {
                 </div>
                 <div className="h-10 w-px bg-border" />
                 <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+200 mil</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">projetos desenvolvidos</p>
+                  <p className="font-display text-2xl font-bold text-foreground">+100 mil</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">projetos autorais</p>
                 </div>
               </motion.div>
             </motion.div>
