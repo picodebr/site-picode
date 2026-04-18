@@ -14,10 +14,7 @@ const nav = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  // Hero da home agora é claro (creme), então usamos sempre tema escuro de texto.
-  const onHomeHero = pathname === "/" && !scrolled;
+  useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -31,9 +28,7 @@ export function Header() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-sm"
-          : onHomeHero
-            ? "bg-transparent"
-            : "bg-background/70 backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
