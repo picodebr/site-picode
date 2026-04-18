@@ -32,13 +32,13 @@ function ContatoPage() {
         <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
         <SpotlightHero className="relative">
           <PathLines className="opacity-40" />
-          <div className="relative mx-auto max-w-5xl px-6 pt-40 pb-20 text-center">
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-32 sm:pt-40 pb-16 sm:pb-20 text-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Fale conosco
             </span>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
-              Vamos transformar <br /><span className="text-gradient-blue">sua escola juntos</span>
+            <h1 className="mt-6 font-display text-[2.25rem] sm:text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+              Vamos transformar <span className="text-gradient-blue">sua escola juntos</span>
             </h1>
             <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Conte um pouco sobre sua escola e vamos preparar uma proposta personalizada para você.
@@ -48,16 +48,16 @@ function ContatoPage() {
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       </section>
 
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 md:py-24 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,oklch(0.9_0.06_240/0.35),transparent_60%),radial-gradient(50rem_35rem_at_-10%_110%,oklch(0.92_0.05_220/0.30),transparent_60%)]" />
-        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           <aside className="lg:col-span-2 lg:sticky lg:top-28 space-y-8">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
                 Contato direto
               </span>
-              <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-                Outras formas <br /><span className="text-gradient-blue">de falar com a gente</span>
+              <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+                Outras formas <span className="text-gradient-blue">de falar com a gente</span>
               </h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 Prefere algo mais rápido? Estamos disponíveis nos canais abaixo.
@@ -110,7 +110,7 @@ function ContatoPage() {
           </aside>
 
           <div className="lg:col-span-3">
-            <div className="relative rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-8 md:p-10 shadow-elegant">
+            <div className="relative rounded-2xl md:rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-5 sm:p-8 md:p-10 shadow-elegant">
               <div aria-hidden className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-40 -z-10 blur-xl" />
               {sent ? (
                 <div className="py-20 text-center">
