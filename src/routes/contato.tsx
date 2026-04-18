@@ -64,44 +64,46 @@ function ContatoPage() {
               </p>
             </div>
 
-            <div className="space-y-3">
+            <div className="rounded-3xl border border-border/60 bg-card/40 backdrop-blur-xl divide-y divide-border/60 overflow-hidden shadow-card">
               <a
                 href="https://www.wa.link/zmkrcm"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/40 hover:shadow-glow hover:-translate-y-0.5 transition-all"
+                className="group relative flex items-center gap-4 p-5 hover:bg-primary/[0.04] transition-colors"
               >
-                <div className="h-12 w-12 rounded-xl bg-gradient-green text-white flex items-center justify-center shrink-0 shadow-md">
-                  <MessageCircle className="h-5 w-5" />
+                <span aria-hidden className="absolute left-0 top-0 h-full w-0.5 bg-gradient-blue scale-y-0 group-hover:scale-y-100 origin-top transition-transform" />
+                <div className="h-10 w-10 rounded-lg bg-[#25D366]/10 text-[#1faa55] flex items-center justify-center shrink-0">
+                  <MessageCircle className="h-5 w-5" strokeWidth={2.2} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">WhatsApp</p>
-                  <p className="font-semibold truncate">Conversar agora</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground font-mono-display">WhatsApp</p>
+                  <p className="font-semibold text-[15px] mt-0.5 truncate">Conversar agora</p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-1 transition-all" />
               </a>
 
               <a
                 href="mailto:contato@picode.com.br"
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/40 hover:shadow-glow hover:-translate-y-0.5 transition-all"
+                className="group relative flex items-center gap-4 p-5 hover:bg-primary/[0.04] transition-colors"
               >
-                <div className="h-12 w-12 rounded-xl bg-gradient-blue text-white flex items-center justify-center shrink-0 shadow-md">
-                  <Mail className="h-5 w-5" />
+                <span aria-hidden className="absolute left-0 top-0 h-full w-0.5 bg-gradient-blue scale-y-0 group-hover:scale-y-100 origin-top transition-transform" />
+                <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                  <Mail className="h-5 w-5" strokeWidth={2.2} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">E-mail</p>
-                  <p className="font-semibold truncate">contato@picode.com.br</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground font-mono-display">E-mail</p>
+                  <p className="font-semibold text-[15px] mt-0.5 truncate">contato@picode.com.br</p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground/60 group-hover:text-primary group-hover:translate-x-1 transition-all" />
               </a>
 
-              <div className="flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4">
-                <div className="h-12 w-12 rounded-xl bg-gradient-red text-white flex items-center justify-center shrink-0 shadow-md">
-                  <MapPin className="h-5 w-5" />
+              <div className="relative flex items-center gap-4 p-5">
+                <div className="h-10 w-10 rounded-lg bg-foreground/5 text-foreground/70 flex items-center justify-center shrink-0">
+                  <MapPin className="h-5 w-5" strokeWidth={2.2} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">Sede</p>
-                  <p className="font-semibold">Sorocaba, SP — Brasil</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground font-mono-display">Sede</p>
+                  <p className="font-semibold text-[15px] mt-0.5">Sorocaba, SP — Brasil</p>
                 </div>
               </div>
             </div>
