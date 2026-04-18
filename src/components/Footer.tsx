@@ -34,8 +34,8 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-center gap-2"><Mail className="h-4 w-4" /><span>contato@picode.com.br</span></li>
-              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /><span>WhatsApp</span></li>
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /><span>Votorantim, SP</span></li>
+              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /><span>+55 (15) 98132-9879</span></li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /><span>Votorantim/SP, Brasil</span></li>
             </ul>
           </div>
         </div>
