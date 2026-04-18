@@ -4,6 +4,8 @@ import { ArrowRight, Heart, Globe, Zap } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { PathLines } from "@/components/PathLines";
+import { DotsField } from "@/components/DotsField";
+import { SpotlightHero } from "@/components/SpotlightHero";
 import studentsImg from "@/assets/students-collab.jpg";
 
 export const Route = createFileRoute("/sobre")({
@@ -27,23 +29,25 @@ const valores = [
 function SobrePage() {
   return (
     <>
-      <section className="relative pt-40 pb-20 bg-background text-foreground overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute top-[10%] right-[-8%] h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: "oklch(0.7 0.2 245 / 0.22)" }} />
-        <div className="absolute bottom-[-10%] left-[-8%] h-[380px] w-[380px] blob-shape blur-3xl" style={{ background: "oklch(0.55 0.2 255 / 0.18)" }} />
-        <PathLines className="opacity-40" />
-        <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-            Sobre nós
-          </span>
-          <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
-            Educação que <span className="text-gradient-blue">evolui com o mundo</span>
-          </h1>
-          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Somos uma EdTech brasileira que acredita em uma educação transformadora, inclusiva e conectada com o futuro. Cada solução nossa carrega esses valores.
-          </p>
-        </div>
+      <section className="relative overflow-hidden bg-background text-foreground">
+        <DotsField />
+        <div className="absolute top-[5%] right-[-8%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.14)" }} />
+        <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
+        <SpotlightHero className="relative">
+          <PathLines className="opacity-40" />
+          <div className="relative mx-auto max-w-5xl px-6 pt-40 pb-20 text-center">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              Sobre nós
+            </span>
+            <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
+              Educação que <span className="text-gradient-blue">evolui com o mundo</span>
+            </h1>
+            <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Somos uma EdTech brasileira que acredita em uma educação transformadora, inclusiva e conectada com o futuro. Cada solução nossa carrega esses valores.
+            </p>
+          </div>
+        </SpotlightHero>
       </section>
 
       <section className="py-24">
