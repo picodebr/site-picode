@@ -7,6 +7,17 @@ import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
 import studentsImg from "@/assets/students-collab.jpg";
+import partnerWadhwani from "@/assets/partner-wadhwani.webp";
+import partnerAws from "@/assets/partner-aws-edstart.png";
+import partnerAnjos from "@/assets/partner-anjos.png";
+import partnerCriabiz from "@/assets/partner-criabiz.png";
+
+const partners = [
+  { src: partnerWadhwani, alt: "Wadhwani Foundation" },
+  { src: partnerAws, alt: "AWS EdStart Member" },
+  { src: partnerAnjos, alt: "Anjos do Brasil" },
+  { src: partnerCriabiz, alt: "CriaBiz Ventures" },
+];
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -120,9 +131,18 @@ function SobrePage() {
             <span className="block text-foreground">Reconhecida pelo InovAtiva como</span>
             <span className="block text-gradient-blue">Destaque na América Latina</span>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Parcerias com Wadhwani, AWS EdStart, Anjos do Brasil, Parque Tecnológico de Sorocaba e CriaBiz Ventures.
-          </p>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
+            {partners.map((p) => (
+              <div key={p.alt} className="flex items-center justify-center h-20">
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="max-h-16 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
           <Link to="/contato">
             <Button size="lg" className="mt-10 bg-gradient-blue text-white shadow-glow h-12 px-6">
               Quero levar para minha escola <ArrowRight className="ml-2 h-4 w-4" />
