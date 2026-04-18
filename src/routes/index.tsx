@@ -71,7 +71,7 @@ function HomePage() {
 
         <SpotlightHero className="relative min-h-[100svh]">
 
-          <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-10 px-4 sm:px-6 pt-28 pb-16 md:gap-12 md:pt-32 md:pb-20 lg:grid-cols-2">
+          <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-6 pt-32 pb-20 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ function HomePage() {
                   aria-hidden
                   className="brand-bar mt-3 hidden h-[180px] w-[6px] shrink-0 rounded-full sm:block lg:h-[220px]"
                 />
-                <h1 className="font-display text-[2.5rem] font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                <h1 className="font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                   <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.65 }} className="block">
                     Pensamento
                   </motion.span>
@@ -134,19 +134,19 @@ function HomePage() {
                 </Link>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 sm:gap-8">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-12 flex items-center gap-8">
                 <div>
-                  <p className="font-display text-xl font-bold text-foreground sm:text-2xl">+50 mil</p>
+                  <p className="font-display text-2xl font-bold text-foreground">+50 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">alunos impactados</p>
                 </div>
-                <div className="hidden h-10 w-px bg-border sm:block" />
+                <div className="h-10 w-px bg-border" />
                 <div>
-                  <p className="font-display text-xl font-bold text-foreground sm:text-2xl">+1 mil</p>
+                  <p className="font-display text-2xl font-bold text-foreground">+1 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">professores formados</p>
                 </div>
-                <div className="hidden h-10 w-px bg-border sm:block" />
+                <div className="h-10 w-px bg-border" />
                 <div>
-                  <p className="font-display text-xl font-bold text-foreground sm:text-2xl">22</p>
+                  <p className="font-display text-2xl font-bold text-foreground">22</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">Estados do país</p>
                 </div>
               </motion.div>
@@ -156,7 +156,7 @@ function HomePage() {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="relative px-2 py-4 sm:px-6 sm:py-8 lg:px-8"
+              className="relative px-6 py-8 lg:px-8"
             >
               <div className="absolute inset-8 -z-10 blob-shape bg-gradient-blue opacity-25 blur-3xl animate-pulse-soft" />
 
@@ -214,7 +214,7 @@ function HomePage() {
         <div className="absolute left-[-8%] top-[15%] h-[420px] w-[420px] blob-shape-2 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[10%] right-[-10%] h-[360px] w-[360px] blob-shape-3 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Nossos pilares"
             title={<>Quatro forças que <span className="text-gradient-blue">movem a marca</span></>}
@@ -252,7 +252,7 @@ function HomePage() {
         <div className="absolute right-[-10%] top-[20%] h-[420px] w-[420px] blob-shape-2 opacity-60 blur-3xl animate-drift" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute left-[-8%] bottom-[10%] h-[320px] w-[320px] blob-shape-3 opacity-50 blur-3xl animate-pulse-soft" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 md:gap-16 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
           {/* Texto à esquerda */}
           <div>
             <SectionHeading
@@ -316,7 +316,7 @@ function HomePage() {
 
       <section className="relative overflow-hidden bg-background py-20 md:py-28">
         <div className="absolute -left-20 top-1/3 h-[300px] w-[300px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.6 0.2 295 / 0.10)" }} />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 md:gap-16 lg:grid-cols-2">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -370,7 +370,7 @@ function HomePage() {
       </section>
 
       <section className="border-y border-border bg-secondary/40 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <p className="mb-6 text-center font-mono-display text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
             Reconhecida e apoiada por
           </p>
@@ -397,7 +397,7 @@ function HomePage() {
         <div className="absolute right-[-8%] top-[10%] h-[360px] w-[360px] blob-shape-2 blur-3xl animate-drift-reverse" style={{ background: "oklch(0.7 0.2 245 / 0.12)" }} />
         <div className="absolute bottom-[-10%] left-[-6%] h-[320px] w-[320px] blob-shape-3 blur-3xl animate-drift" style={{ background: "oklch(0.78 0.13 220 / 0.14)" }} />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="relative mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Nosso impacto"
             title={<>Números que <span className="text-gradient-blue">mostram resultado</span></>}
@@ -413,10 +413,10 @@ function HomePage() {
                 whileHover={{ y: -6 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-card/85 p-5 sm:p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-3xl border border-border bg-card/85 p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
               >
                 <div className="absolute -right-6 -top-6 h-20 w-20 blob-shape bg-gradient-blue opacity-10 transition-opacity duration-500 group-hover:opacity-25" />
-                <p className="relative font-display text-4xl font-bold text-gradient-blue sm:text-5xl md:text-6xl">
+                <p className="relative font-display text-5xl font-bold text-gradient-blue md:text-6xl">
                   <CountUp end={s.end} suffix={s.suffix} separator={s.separator} duration={1800 + i * 200} />
                 </p>
                 <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{s.label}</p>
@@ -427,13 +427,13 @@ function HomePage() {
       </section>
 
       <section className="relative overflow-hidden bg-background py-24 md:py-32">
-        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-3xl md:text-5xl"
+            className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-foreground md:text-5xl"
           >
             "65% das crianças vão trabalhar em <span className="text-gradient-blue">profissões que ainda não existem</span>."
           </motion.blockquote>
@@ -446,14 +446,14 @@ function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.18 }}
-            className="relative mt-12 overflow-hidden rounded-3xl md:rounded-[2.5rem] bg-gradient-blue p-6 sm:p-10 text-white shadow-glow md:p-14"
+            className="relative mt-12 overflow-hidden rounded-[2.5rem] bg-gradient-blue p-10 text-white shadow-glow md:p-14"
           >
             <div className="absolute inset-0 grid-pattern opacity-20" />
             <div className="absolute -right-20 -top-20 h-60 w-60 blob-shape bg-white/10 blur-2xl" />
             <div className="absolute -bottom-20 -left-20 h-60 w-60 blob-shape bg-white/10 blur-2xl" />
             <div className="relative">
-              <h3 className="font-display text-2xl sm:text-3xl font-bold leading-[1.1] md:text-4xl">
-                Sua escola está pronta para o futuro?
+              <h3 className="font-display text-3xl font-bold leading-[1.05] md:text-4xl">
+                Sua escola está pronta <br /> para o futuro?
               </h3>
               <p className="mx-auto mt-4 max-w-xl text-white/85">
                 Receba uma proposta personalizada e descubra como a PiCode pode transformar a forma de ensinar tecnologia.

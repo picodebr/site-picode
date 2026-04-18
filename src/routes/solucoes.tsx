@@ -64,7 +64,7 @@ function SolucoesPage() {
         <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
         <SpotlightHero className="relative">
           <PathLines className="opacity-40" />
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-32 sm:pt-40 pb-16 sm:pb-20 text-center">
+          <div className="relative mx-auto max-w-5xl px-6 pt-40 pb-20 text-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Soluções
@@ -83,8 +83,8 @@ function SolucoesPage() {
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-14 md:space-y-16">
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 space-y-12">
           {products.map((p, i) => (
             <motion.div
               key={p.name}
@@ -92,17 +92,17 @@ function SolucoesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={`grid lg:grid-cols-2 gap-8 md:gap-10 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+              className={`grid lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
             >
-              <div className={`relative aspect-[4/3] rounded-2xl md:rounded-3xl ${p.gradient} overflow-hidden shadow-elegant flex items-center justify-center`}>
+              <div className={`relative aspect-[4/3] rounded-3xl ${p.gradient} overflow-hidden shadow-elegant flex items-center justify-center`}>
                 <div className="absolute inset-0 grid-pattern opacity-20" />
-                <p.icon className="relative h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 text-white/90 drop-shadow-2xl" />
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-2.5 py-1 rounded-full bg-white/20 backdrop-blur text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider">
+                <p.icon className="relative h-32 w-32 text-white/90 drop-shadow-2xl" />
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/20 backdrop-blur text-xs font-semibold text-white uppercase tracking-wider">
                   {p.tag}
                 </div>
               </div>
               <div>
-                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight">{p.name}</h2>
+                <h2 className="font-display text-4xl md:text-5xl font-bold uppercase tracking-tight">{p.name}</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{p.desc}</p>
                 <ul className="mt-6 space-y-2.5">
                   {p.features.map((f) => (
