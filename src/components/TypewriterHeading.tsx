@@ -56,7 +56,7 @@ export function TypewriterHeading({
   const cursorInPrefix = charCount <= prefixLen;
 
   return (
-    <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight h-[2.1em] md:h-[2.1em]">
+    <h1 className="mt-6 font-display text-[2.25rem] sm:text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight h-[4.4em] sm:h-[2.4em] md:h-[2.1em]">
       <span>{shownPrefix}</span>
       {cursorInPrefix && <span className="tw-cursor" aria-hidden>|</span>}
       {!cursorInPrefix && <br />}
