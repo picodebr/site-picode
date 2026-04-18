@@ -102,7 +102,7 @@ function HomePage() {
                     computacional
                   </motion.span>
                   <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.38, duration: 0.65 }} className="block">
-                    para toda escola.
+                    para <TypewriterOnce initial="toda escola." target="sua escola." />
                   </motion.span>
                 </h1>
               </div>
