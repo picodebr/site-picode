@@ -53,7 +53,7 @@ function SobrePage() {
             initial={{ opacity: 0, y: 30, rotate: -8 }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="hidden md:block absolute right-[6%] top-32 w-56 lg:w-72 drop-shadow-2xl animate-float pointer-events-none select-none"
+            className="hidden md:block absolute right-[14%] top-44 w-24 lg:w-28 drop-shadow-2xl animate-float pointer-events-none select-none z-20"
           />
           <motion.img
             src={foguete3d}
@@ -62,7 +62,7 @@ function SobrePage() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="md:hidden mx-auto mt-32 w-40 drop-shadow-2xl animate-float pointer-events-none select-none"
+            className="md:hidden absolute right-6 top-28 w-16 drop-shadow-2xl animate-float pointer-events-none select-none z-20"
           />
           <div className="relative mx-auto max-w-5xl px-6 pt-10 md:pt-40 pb-20 text-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
