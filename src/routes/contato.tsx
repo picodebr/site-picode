@@ -48,87 +48,132 @@ function ContatoPage() {
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
       </section>
 
-      <section className="py-24">
-        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-6">
-            <h2 className="font-display text-2xl font-bold uppercase">Outras formas de falar</h2>
-            <a href="https://www.wa.link/zmkrcm" target="_blank" rel="noreferrer" className="flex items-start gap-4 rounded-2xl border border-border p-5 hover:border-primary transition-colors">
-              <div className="h-12 w-12 rounded-xl bg-gradient-green text-white flex items-center justify-center shrink-0">
-                <MessageCircle className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="font-semibold">WhatsApp</p>
-                <p className="text-sm text-muted-foreground">Resposta em horário comercial</p>
-              </div>
-            </a>
-            <div className="flex items-start gap-4 rounded-2xl border border-border p-5">
-              <div className="h-12 w-12 rounded-xl bg-gradient-blue text-white flex items-center justify-center shrink-0">
-                <Mail className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="font-semibold">E-mail</p>
-                <p className="text-sm text-muted-foreground">contato@picode.com.br</p>
+      <section className="relative py-24 overflow-hidden">
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_80%_-10%,oklch(0.9_0.06_240/0.35),transparent_60%),radial-gradient(50rem_35rem_at_-10%_110%,oklch(0.92_0.05_220/0.30),transparent_60%)]" />
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+          <aside className="lg:col-span-2 lg:sticky lg:top-28 space-y-8">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
+                Contato direto
+              </span>
+              <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+                Outras formas <br /><span className="text-gradient-blue">de falar com a gente</span>
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                Prefere algo mais rápido? Estamos disponíveis nos canais abaixo.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <a
+                href="https://www.wa.link/zmkrcm"
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/40 hover:shadow-glow hover:-translate-y-0.5 transition-all"
+              >
+                <div className="h-12 w-12 rounded-xl bg-gradient-green text-white flex items-center justify-center shrink-0 shadow-md">
+                  <MessageCircle className="h-5 w-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">WhatsApp</p>
+                  <p className="font-semibold truncate">Conversar agora</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+              </a>
+
+              <a
+                href="mailto:contato@picode.com.br"
+                className="group flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/40 hover:shadow-glow hover:-translate-y-0.5 transition-all"
+              >
+                <div className="h-12 w-12 rounded-xl bg-gradient-blue text-white flex items-center justify-center shrink-0 shadow-md">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">E-mail</p>
+                  <p className="font-semibold truncate">contato@picode.com.br</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+              </a>
+
+              <div className="flex items-center gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur p-4">
+                <div className="h-12 w-12 rounded-xl bg-gradient-red text-white flex items-center justify-center shrink-0 shadow-md">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground font-mono-display">Sede</p>
+                  <p className="font-semibold">Sorocaba, SP — Brasil</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border p-5">
-              <div className="h-12 w-12 rounded-xl bg-gradient-red text-white flex items-center justify-center shrink-0">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="font-semibold">Sede</p>
-                <p className="text-sm text-muted-foreground">Sorocaba, SP — Brasil</p>
-              </div>
-            </div>
-          </div>
+          </aside>
 
           <div className="lg:col-span-3">
-            <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
+            <div className="relative rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-8 md:p-10 shadow-elegant">
+              <div aria-hidden className="absolute -inset-px rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-transparent opacity-40 -z-10 blur-xl" />
               {sent ? (
-                <div className="py-16 text-center">
-                  <CheckCircle2 className="mx-auto h-16 w-16 text-primary" />
-                  <h3 className="mt-4 font-display text-2xl font-bold uppercase">Mensagem enviada!</h3>
+                <div className="py-20 text-center">
+                  <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
+                    <CheckCircle2 className="h-10 w-10 text-primary" />
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl font-bold uppercase tracking-tight">Mensagem enviada!</h3>
                   <p className="mt-2 text-muted-foreground">Em breve nosso time entra em contato.</p>
                 </div>
               ) : (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSent(true);
-                  }}
-                  className="space-y-5"
-                >
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Nome</Label>
-                      <Input id="name" required className="mt-1.5" />
+                <>
+                  <div className="mb-8">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
+                      Formulário
+                    </span>
+                    <h3 className="mt-3 font-display text-2xl md:text-3xl font-bold tracking-tight">
+                      Conte sobre sua escola
+                    </h3>
+                    <p className="mt-1.5 text-sm text-muted-foreground">
+                      Resposta personalizada em até 1 dia útil.
+                    </p>
+                  </div>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setSent(true);
+                    }}
+                    className="space-y-5"
+                  >
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome</Label>
+                        <Input id="name" required placeholder="Seu nome completo" className="mt-2 h-11 bg-background/60" />
+                      </div>
+                      <div>
+                        <Label htmlFor="role" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Cargo</Label>
+                        <Input id="role" placeholder="Diretor, coordenador..." className="mt-2 h-11 bg-background/60" />
+                      </div>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">E-mail</Label>
+                        <Input id="email" type="email" required placeholder="voce@escola.com.br" className="mt-2 h-11 bg-background/60" />
+                      </div>
+                      <div>
+                        <Label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone</Label>
+                        <Input id="phone" placeholder="(11) 90000-0000" className="mt-2 h-11 bg-background/60" />
+                      </div>
                     </div>
                     <div>
-                      <Label htmlFor="role">Cargo</Label>
-                      <Input id="role" placeholder="Diretor, coordenador..." className="mt-1.5" />
-                    </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="email">E-mail</Label>
-                      <Input id="email" type="email" required className="mt-1.5" />
+                      <Label htmlFor="school" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Escola</Label>
+                      <Input id="school" required placeholder="Nome da instituição" className="mt-2 h-11 bg-background/60" />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Telefone</Label>
-                      <Input id="phone" className="mt-1.5" />
+                      <Label htmlFor="msg" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Como podemos ajudar?</Label>
+                      <Textarea id="msg" rows={5} placeholder="Conte um pouco sobre o seu projeto, número de alunos, séries..." className="mt-2 bg-background/60 resize-none" />
                     </div>
-                  </div>
-                  <div>
-                    <Label htmlFor="school">Escola</Label>
-                    <Input id="school" required className="mt-1.5" />
-                  </div>
-                  <div>
-                    <Label htmlFor="msg">Como podemos ajudar?</Label>
-                    <Textarea id="msg" rows={4} className="mt-1.5" />
-                  </div>
-                  <Button type="submit" size="lg" className="w-full bg-gradient-blue text-white shadow-glow h-12">
-                    Enviar mensagem <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </form>
+                    <Button type="submit" size="lg" className="w-full bg-gradient-blue text-white shadow-glow h-12 rounded-xl font-semibold">
+                      Enviar mensagem <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    <p className="text-[11px] text-center text-muted-foreground">
+                      Ao enviar, você concorda em receber um retorno do nosso time comercial.
+                    </p>
+                  </form>
+                </>
               )}
             </div>
           </div>
