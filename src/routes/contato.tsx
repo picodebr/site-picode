@@ -40,7 +40,7 @@ function ContatoPage() {
             <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
               Vamos transformar <br /><span className="text-gradient-blue">sua escola juntos</span>
             </h1>
-            <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="relative z-10 mt-6 text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               Conte um pouco sobre sua escola e vamos preparar uma proposta personalizada para você.
             </p>
           </div>
