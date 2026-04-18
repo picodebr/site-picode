@@ -133,12 +133,12 @@ function SobrePage() {
           </h2>
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
             {partners.map((p) => (
-              <div key={p.alt} className="flex items-center justify-center h-20">
+              <div key={p.alt} className="flex items-center justify-center aspect-[5/2] w-full">
                 <img
                   src={p.src}
                   alt={p.alt}
                   loading="lazy"
-                  className="max-h-16 w-auto object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                  className="max-h-full max-w-full object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             ))}
