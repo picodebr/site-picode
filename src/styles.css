@@ -350,6 +350,18 @@
 }
 .animate-pulse-soft { animation: pulse-soft 5s ease-in-out infinite; }
 
+@keyframes tw-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.tw-cursor {
+  display: inline-block;
+  margin-left: 0.05em;
+  font-weight: 400;
+  color: var(--brand-blue);
+  animation: tw-blink 1s steps(1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float, .animate-float-slow, .animate-blob, .animate-marquee,
   .animate-spin-slow, .animate-draw, .animate-drift, .animate-drift-reverse,
