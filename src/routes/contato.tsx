@@ -103,7 +103,7 @@ function ContatoPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground font-mono-display">Sede</p>
-                  <p className="font-semibold text-[15px] mt-0.5">Sorocaba, SP — Brasil</p>
+                  <p className="font-semibold text-[15px] mt-0.5">Votorantim, SP — Brasil</p>
                 </div>
               </div>
             </div>
