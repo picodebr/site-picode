@@ -100,16 +100,16 @@ function SobrePage() {
             />
             <div className="mt-8 grid sm:grid-cols-3 gap-4">
               <div className="rounded-2xl border border-border p-4">
-                <p className="font-display text-3xl font-bold text-gradient-blue">+9mil</p>
+                <p className="font-display text-3xl font-bold text-gradient-blue">+50 mil</p>
                 <p className="text-xs text-muted-foreground mt-1">alunos impactados</p>
               </div>
               <div className="rounded-2xl border border-border p-4">
-                <p className="font-display text-3xl font-bold text-gradient-blue">+200</p>
+                <p className="font-display text-3xl font-bold text-gradient-blue">+1000</p>
                 <p className="text-xs text-muted-foreground mt-1">professores formados</p>
               </div>
               <div className="rounded-2xl border border-border p-4">
-                <p className="font-display text-3xl font-bold text-gradient-blue">4</p>
-                <p className="text-xs text-muted-foreground mt-1">estados em ação</p>
+                <p className="font-display text-3xl font-bold text-gradient-blue">22</p>
+                <p className="text-xs text-muted-foreground mt-1">Estados + DF</p>
               </div>
             </div>
           </div>
