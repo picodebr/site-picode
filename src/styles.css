@@ -358,7 +358,7 @@
   display: inline-block;
   margin-left: 0.05em;
   font-weight: 400;
-  color: var(--brand-blue);
+  color: oklch(0.72 0.01 260);
   animation: tw-blink 1s steps(1) infinite;
 }
 

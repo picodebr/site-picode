@@ -75,7 +75,7 @@ function SolucoesPage() {
                 { prefix: "Um universo ", highlight: "de possibilidades digitais" },
               ]}
             />
-            <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Quatro produtos integrados que cobrem do conteúdo à gestão dos kits — pensados para escolas que querem ir além da aula tradicional.
             </p>
           </div>
