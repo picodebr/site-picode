@@ -300,44 +300,13 @@ function HomePage() {
           >
             <div className="absolute -inset-10 -z-10 blob-shape bg-gradient-blue opacity-20 blur-3xl animate-pulse-soft" />
 
-            {/* Notebook mockup */}
             <div className="relative">
-              <div className="relative mx-auto w-full max-w-[520px]">
-                <div className="relative rounded-t-2xl border-[10px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-background">
-                    <img
-                      src={mockupNotebook}
-                      alt="Tela da plataforma PiCode no notebook mostrando o ambiente de programação em blocos"
-                      className="h-full w-full object-cover object-top"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className="relative mx-auto h-3 w-[110%] -translate-x-[5%] rounded-b-2xl bg-foreground shadow-card">
-                  <div className="absolute left-1/2 top-0 h-1 w-16 -translate-x-1/2 rounded-b-lg bg-background/20" />
-                </div>
-              </div>
-
-              {/* Celular sobreposto */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.25 }}
-                className="absolute -bottom-8 -left-4 w-[140px] sm:-left-8 sm:w-[170px]"
-              >
-                <div className="relative rounded-[2rem] border-[6px] border-foreground bg-foreground shadow-elegant">
-                  <div className="relative aspect-[9/19] overflow-hidden rounded-[1.5rem] bg-background">
-                    <div className="absolute left-1/2 top-1.5 z-10 h-3 w-12 -translate-x-1/2 rounded-full bg-foreground" />
-                    <img
-                      src={mockupMobile}
-                      alt="Tela da plataforma PiCode no celular mostrando projetos do aluno"
-                      className="h-full w-full object-top object-fill"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </motion.div>
+              <img
+                src={mockupCombo}
+                alt="Plataforma PiCode no notebook e no celular mostrando o ambiente de programação em blocos e a turma de alunos"
+                className="relative w-full h-auto drop-shadow-2xl"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         </div>
