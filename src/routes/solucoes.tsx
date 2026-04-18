@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
+import { TypewriterHeading } from "@/components/TypewriterHeading";
 
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
@@ -68,9 +69,12 @@ function SolucoesPage() {
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Soluções
             </span>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[0.98] tracking-tight">
-              Um ecossistema <br /><span className="text-gradient-blue">para ensinar tecnologia</span>
-            </h1>
+            <TypewriterHeading
+              phrases={[
+                { prefix: "Um ecossistema ", highlight: "para ensinar tecnologia" },
+                { prefix: "Um universo ", highlight: "de possibilidades digitais" },
+              ]}
+            />
             <p className="mt-6 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Quatro produtos integrados que cobrem do conteúdo à gestão dos kits — pensados para escolas que querem ir além da aula tradicional.
             </p>
