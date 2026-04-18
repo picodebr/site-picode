@@ -7,6 +7,7 @@ import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
 import studentsImg from "@/assets/students-collab.jpg";
+import foguete3d from "@/assets/foguete-3d.png";
 import partnerWadhwani from "@/assets/partner-wadhwani.webp";
 import partnerAws from "@/assets/partner-aws-edstart.png";
 import partnerAnjos from "@/assets/partner-anjos.png";
@@ -46,7 +47,24 @@ function SobrePage() {
         <div className="absolute bottom-[-10%] left-[-10%] h-[460px] w-[460px] rounded-full blur-3xl animate-drift-reverse" style={{ background: "oklch(0.55 0.2 255 / 0.10)" }} />
         <SpotlightHero className="relative">
           <PathLines className="opacity-40" />
-          <div className="relative mx-auto max-w-5xl px-6 pt-40 pb-20 text-center">
+          <motion.img
+            src={foguete3d}
+            alt="Foguete PiCode"
+            initial={{ opacity: 0, y: 30, rotate: -8 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="hidden md:block absolute right-[6%] top-32 w-56 lg:w-72 drop-shadow-2xl animate-float pointer-events-none select-none"
+          />
+          <motion.img
+            src={foguete3d}
+            alt=""
+            aria-hidden
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="md:hidden mx-auto mt-32 w-40 drop-shadow-2xl animate-float pointer-events-none select-none"
+          />
+          <div className="relative mx-auto max-w-5xl px-6 pt-10 md:pt-40 pb-20 text-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/15 text-[11px] font-semibold uppercase tracking-[0.18em] font-mono-display">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               Sobre nós
