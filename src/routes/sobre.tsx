@@ -96,7 +96,7 @@ function SobrePage() {
               align="left"
               eyebrow="Nossa missão"
               title={<>Levar tecnologia <span className="text-gradient-blue">para toda sala de aula</span></>}
-              description="Acreditamos que pensamento computacional é tão fundamental quanto ler e escrever. Nossa missão é dar às escolas as ferramentas, os kits e o conteúdo para tornar isso realidade."
+              description="Acreditamos que pensamento computacional é tão fundamental quanto ler e escrever. Nossa missão é dar às escolas as ferramentas, o conteúdo, o apoio e a tranquilidade para tornar isso realidade."
             />
             <div className="mt-8 grid sm:grid-cols-3 gap-4">
               <div className="rounded-2xl border border-border p-4">
