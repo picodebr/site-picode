@@ -117,7 +117,8 @@ function SobrePage() {
       <section className="py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-tight">
-            RECONHECIDA PELO <span className="text-gradient-blue">INOVATIVA</span> COMO DESTAQUE NA AMÉRICA LATINA
+            <span className="text-muted-foreground/70 text-2xl md:text-3xl block font-semibold mb-3">Reconhecida pelo InovAtiva como</span>
+            <span className="text-gradient-blue">Destaque na América Latina</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Parcerias com Wadhwani, AWS EdStart, Anjos do Brasil, Parque Tecnológico de Sorocaba e CriaBiz Ventures.
