@@ -6,9 +6,9 @@ export function Footer() {
   return (
     <footer className="relative bg-[oklch(0.13_0.04_260)] text-white/80 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30" />
-      <div className="relative mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-2">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 md:grid-cols-4">
+          <div className="sm:col-span-2 md:col-span-2">
             <Logo variant="light" />
             <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
               Soluções tecnológicas de pensamento computacional e robótica
