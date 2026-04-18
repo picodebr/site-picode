@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sobre")({
       { title: "Sobre — PiCode Education" },
       { name: "description", content: "Conheça a PiCode Education: missão, valores e história de uma EdTech brasileira que leva pensamento computacional para escolas." },
       { property: "og:title", content: "Sobre a PiCode Education" },
-      { property: "og:description", content: "EdTech brasileira reconhecida pela InovAtiva, apoiada pelo MCTI." },
+      { property: "og:description", content: "EdTech brasileira reconhecida pelo InovAtiva como destaque na América Latina." },
     ],
   }),
   component: SobrePage,
