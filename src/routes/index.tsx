@@ -16,6 +16,7 @@ import { PartnersMarquee } from "@/components/PartnersMarquee";
 import { PathLines } from "@/components/PathLines";
 import { Wave } from "@/components/Wave";
 import { DotsField } from "@/components/DotsField";
+import { TypewriterOnce } from "@/components/TypewriterOnce";
 
 export const Route = createFileRoute("/")({
   head: () => ({
