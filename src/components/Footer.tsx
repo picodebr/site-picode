@@ -42,7 +42,6 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50">
           <p>© {new Date().getFullYear()} PiCode Education. Todos os direitos reservados.</p>
-          <p>Apoio do Ministério da Ciência, Tecnologia e Inovação</p>
         </div>
       </div>
     </footer>
