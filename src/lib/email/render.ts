@@ -1,6 +1,7 @@
 import * as ReactDOMServer from 'react-dom/server'
+import type { ReactElement } from 'react'
 
-export async function renderEmailHtml(element: React.ReactElement) {
+export async function renderEmailHtml(element: ReactElement) {
   const markup = ReactDOMServer.renderToStaticMarkup(element)
   return `<!DOCTYPE html>${markup}`
 }
