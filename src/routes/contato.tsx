@@ -112,6 +112,33 @@ function ContatoPage() {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
+                      const form = e.currentTarget;
+                      const data = new FormData(form);
+                      const name = (data.get("name") as string)?.trim() ?? "";
+                      const role = (data.get("role") as string)?.trim() ?? "";
+                      const email = (data.get("email") as string)?.trim() ?? "";
+                      const phone = (data.get("phone") as string)?.trim() ?? "";
+                      const school = (data.get("school") as string)?.trim() ?? "";
+                      const msg = (data.get("msg") as string)?.trim() ?? "";
+
+                      if (!name || !role || !email || !phone || !school || !msg) {
+                        toast.error("Por favor, preencha todos os campos antes de enviar.");
+                        return;
+                      }
+
+                      const subject = `Novo contato pelo site — ${name} (${school})`;
+                      const body = [
+                        `Nome: ${name}`,
+                        `Cargo: ${role}`,
+                        `E-mail: ${email}`,
+                        `Telefone: ${phone}`,
+                        `Escola: ${school}`,
+                        ``,
+                        `Mensagem:`,
+                        msg,
+                      ].join("\n");
+
+                      window.location.href = `mailto:piovani@picode.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                       setSent(true);
                     }}
                     className="space-y-5"
@@ -119,30 +146,30 @@ function ContatoPage() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome</Label>
-                        <Input id="name" required placeholder="Seu nome completo" className="mt-2 h-11 bg-background/60" />
+                        <Input id="name" name="name" required placeholder="Seu nome completo" className="mt-2 h-11 bg-background/60" />
                       </div>
                       <div>
                         <Label htmlFor="role" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Cargo</Label>
-                        <Input id="role" placeholder="Diretor, coordenador..." className="mt-2 h-11 bg-background/60" />
+                        <Input id="role" name="role" required placeholder="Diretor, coordenador..." className="mt-2 h-11 bg-background/60" />
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">E-mail</Label>
-                        <Input id="email" type="email" required placeholder="voce@escola.com.br" className="mt-2 h-11 bg-background/60" />
+                        <Input id="email" name="email" type="email" required placeholder="voce@escola.com.br" className="mt-2 h-11 bg-background/60" />
                       </div>
                       <div>
                         <Label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone</Label>
-                        <Input id="phone" placeholder="(11) 90000-0000" className="mt-2 h-11 bg-background/60" />
+                        <Input id="phone" name="phone" required placeholder="(11) 90000-0000" className="mt-2 h-11 bg-background/60" />
                       </div>
                     </div>
                     <div>
                       <Label htmlFor="school" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Escola</Label>
-                      <Input id="school" required placeholder="Nome da instituição" className="mt-2 h-11 bg-background/60" />
+                      <Input id="school" name="school" required placeholder="Nome da instituição" className="mt-2 h-11 bg-background/60" />
                     </div>
                     <div>
                       <Label htmlFor="msg" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Como podemos ajudar?</Label>
-                      <Textarea id="msg" rows={5} placeholder="Conte um pouco sobre o seu projeto, número de alunos, séries..." className="mt-2 bg-background/60 resize-none" />
+                      <Textarea id="msg" name="msg" required rows={5} placeholder="Conte um pouco sobre o seu projeto, número de alunos, séries..." className="mt-2 bg-background/60 resize-none" />
                     </div>
                     <Button type="submit" size="lg" className="w-full bg-gradient-blue text-white shadow-glow h-12 rounded-xl font-semibold">
                       Enviar mensagem <ArrowRight className="ml-2 h-4 w-4" />
