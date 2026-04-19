@@ -417,7 +417,7 @@ function HomePage() {
                 className="group relative overflow-hidden rounded-3xl border border-border bg-card/85 p-5 sm:p-7 shadow-card transition-all hover:border-primary/30 hover:shadow-elegant"
               >
                 <div className="absolute -right-6 -top-6 h-20 w-20 blob-shape bg-gradient-blue opacity-10 transition-opacity duration-500 group-hover:opacity-25" />
-                <p className="relative font-display text-3xl sm:text-5xl md:text-6xl font-bold text-gradient-blue leading-tight break-words">
+                <p className="relative font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient-blue leading-tight whitespace-nowrap">
                   <CountUp end={s.end} suffix={s.suffix} separator={s.separator} duration={1800 + i * 200} />
                 </p>
                 <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{s.label}</p>
