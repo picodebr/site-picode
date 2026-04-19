@@ -135,19 +135,19 @@ function HomePage() {
                 </Link>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-12 flex items-center gap-8">
-                <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+50 mil</p>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.82 }} className="mt-12 flex items-center gap-5 sm:gap-8">
+                <div className="min-w-0">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">+50 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">alunos impactados</p>
                 </div>
-                <div className="h-10 w-px bg-border" />
-                <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+1 mil</p>
+                <div className="h-10 w-px bg-border shrink-0" />
+                <div className="min-w-0">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">+1 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">professores formados</p>
                 </div>
-                <div className="h-10 w-px bg-border" />
-                <div>
-                  <p className="font-display text-2xl font-bold text-foreground">+100 mil</p>
+                <div className="h-10 w-px bg-border shrink-0" />
+                <div className="min-w-0">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">+100 mil</p>
                   <p className="mt-0.5 text-xs text-muted-foreground">projetos autorais</p>
                 </div>
               </motion.div>
