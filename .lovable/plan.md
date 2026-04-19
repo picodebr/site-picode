@@ -1,17 +1,26 @@
 
-O usuário enviou um vídeo novo (`PiCode_maonamassa_1min-2.mp4`) para substituir o `impact-bg.mp4` atual de ~69 MB que está quebrando o deploy (limite de 25 MB por arquivo no Cloudflare KV).
-
-Preciso checar o tamanho do novo vídeo e onde o atual é referenciado.
+Usuário aprovou ativar o Cloud para o formulário de contato funcionar enviando e-mail real para o time.
 
 ## Plano
 
-1. **Verificar tamanho do vídeo enviado** — se estiver acima de 25 MB, comprimir com ffmpeg para caber no limite do Cloudflare Workers (mirar em ~15–20 MB para margem segura, mantendo qualidade visual aceitável para fundo de seção).
-2. **Substituir o arquivo** — copiar o novo vídeo para `public/impact-bg.mp4` (mesmo caminho/nome do atual), sobrescrevendo o antigo. Assim nenhuma referência no código precisa mudar.
-3. **Confirmar referência única** — `src/routes/index.tsx` usa o vídeo na seção de impacto via tag `<video>` apontando para `/impact-bg.mp4`. Manter o mesmo nome evita edição de código.
-4. **Republicar** — depois disso o erro 413 do KV some e o publish do Lovable deve passar.
+1. **Ativar Lovable Cloud** — habilita backend (Supabase) e infra de e-mail.
+2. **Configurar domínio de e-mail** — abrir o diálogo de setup do domínio remetente. Sugestão: `notify.picode.com.br`. Você precisará adicionar uns registros DNS no provedor do domínio depois (te guio na hora). Esse passo é necessário para os e-mails saírem do seu próprio domínio com boa entregabilidade.
+3. **Subir infra de e-mails** — fila com retry automático, suppression list, logs de envio. Tudo gerenciado.
+4. **Criar tabela `contact_submissions`** — guarda cada envio do formulário (nome, cargo, e-mail, telefone, escola, mensagem, timestamp). Mesmo que o e-mail falhe, o registro fica. RLS travado: só service role escreve/lê.
+5. **Criar dois templates de e-mail** (React Email):
+   - **Notificação interna** → para `piovani@picode.com.br` com todos os dados do lead, formatados.
+   - **Confirmação para o lead** → "Recebemos seu contato, retornamos em até 1 dia útil", assinado pela PiCode.
+6. **Criar rota pública `/api/contact`** — recebe o POST do formulário, valida com Zod (limites de tamanho anti-spam), grava no banco, dispara os dois e-mails pela fila. Sem auth (formulário é público), mas com validação rígida.
+7. **Atualizar `src/routes/contato.tsx`** — trocar o `mailto:` por `fetch('/api/contact', ...)`. Manter a tela de "Mensagem enviada!" no sucesso, mostrar toast de erro se algo falhar.
 
-## Detalhes técnicos
+## Resultado para você
 
-- Caminho final: `public/impact-bg.mp4`
-- Se precisar comprimir: `ffmpeg -i input.mp4 -vcodec libx264 -crf 28 -preset slow -an -movflags +faststart output.mp4` (sem áudio, já que é fundo silencioso, e com faststart para começar a tocar antes do download completo).
-- Validar tamanho final < 25 MB antes de finalizar.
+- Visitante preenche e clica "Enviar" → vê tela de sucesso na hora.
+- Time recebe e-mail formatado em `piovani@picode.com.br` em segundos.
+- Lead recebe e-mail de confirmação automático.
+- Histórico de todos os contatos fica salvo no banco.
+
+## Confirmar antes de executar
+
+- **E-mail de destino**: `piovani@picode.com.br` (mesmo do `mailto:` atual). Se for outro, me avisa.
+- **Subdomínio remetente**: vou sugerir `notify.picode.com.br` no diálogo. Se preferir outro nome, ajusta na hora.
