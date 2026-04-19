@@ -77,6 +77,15 @@ export function Header() {
       </div>
 
       {open && (
+        <>
+          <div
+            className="md:hidden fixed inset-0 top-[64px] z-[-1] bg-foreground/10 backdrop-blur-[2px]"
+            onClick={() => setOpen(false)}
+            aria-hidden
+          />
+        </>
+      )}
+      {open && (
         <div className="md:hidden absolute right-3 left-3 top-full mt-2 rounded-3xl border border-border bg-background/95 backdrop-blur-xl shadow-elegant overflow-hidden">
           <nav className="flex flex-col p-3 gap-1.5">
             {nav.map((item) => (
