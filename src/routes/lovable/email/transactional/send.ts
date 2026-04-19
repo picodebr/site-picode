@@ -251,10 +251,16 @@ export const Route = createFileRoute("/lovable/email/transactional/send")({
           return Response.json({ success: false, reason: 'email_suppressed' })
         }
 
-        // 4. Render React Email template to HTML and plain text
+        // 4. Render React Email template to HTML; derive plain text from HTML
+        // (avoids html-to-text dep which has an ESM resolution bug for htmlparser2)
         const element = React.createElement(template.component, templateData)
         const html = await render(element)
-        const plainText = await render(element, { plainText: true })
+        const plainText = html
+          .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+          .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+          .replace(/<[^>]+>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
 
         // Resolve subject — supports static string or dynamic function
         const resolvedSubject =
