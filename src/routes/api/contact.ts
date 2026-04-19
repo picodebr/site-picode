@@ -151,10 +151,16 @@ export const Route = createFileRoute('/api/contact')({
             if (storedToken?.token) unsubscribeToken = storedToken.token
           }
 
-          // Render the React Email template
+          // Render the React Email template (HTML only — derive plain text from HTML
+          // to avoid pulling in html-to-text, which has an ESM resolution bug for htmlparser2)
           const element = React.createElement(template.component, templateData)
           const html = await render(element)
-          const plainText = await render(element, { plainText: true })
+          const plainText = html
+            .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+            .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
 
           const resolvedSubject =
             typeof template.subject === 'function'
