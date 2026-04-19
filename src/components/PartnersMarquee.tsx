@@ -1,5 +1,22 @@
 const partners = [
   {
+    name: "CriaBiz",
+    logo: (
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 4 L8 18 L15 18 L13 28 L24 13 L17 13 Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    name: "Arena",
+    logo: (
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="3" />
+        <path d="M16 5 L16 27 M5 16 L27 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
     name: "Wadhwani",
     logo: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,39 +53,10 @@ const partners = [
     ),
   },
   {
-    name: "Parque Tec. Sorocaba",
+    name: "Poli Angels",
     logo: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-        <circle cx="16" cy="16" r="4" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    name: "CriaBiz Ventures",
-    logo: (
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 4 L8 18 L15 18 L13 28 L24 13 L17 13 Z" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    name: "MCTI",
-    logo: (
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="3" fill="currentColor" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" stroke="currentColor" strokeWidth="2" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" stroke="currentColor" strokeWidth="2" transform="rotate(60 16 16)" />
-        <ellipse cx="16" cy="16" rx="12" ry="5" stroke="currentColor" strokeWidth="2" transform="rotate(-60 16 16)" />
-      </svg>
-    ),
-  },
-  {
-    name: "Arena",
-    logo: (
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="3" />
-        <path d="M16 5 L16 27 M5 16 L27 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M16 4 L20 13 L29 13 L22 19 L25 28 L16 22 L7 28 L10 19 L3 13 L12 13 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
       </svg>
     ),
   },
