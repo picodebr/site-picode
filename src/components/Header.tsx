@@ -77,43 +77,38 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-          <nav className="flex flex-col p-4 gap-1.5">
-            {nav.map((item, i) => (
+        <div className="md:hidden absolute right-3 left-3 top-full mt-2 rounded-3xl border border-border bg-background/95 backdrop-blur-xl shadow-elegant overflow-hidden">
+          <nav className="flex flex-col p-3 gap-1.5">
+            {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="group relative flex items-center justify-between rounded-2xl border border-transparent bg-foreground/[0.02] px-4 py-3.5 text-sm font-semibold text-foreground/80 transition-all hover:border-primary/20 hover:bg-primary/[0.06] hover:text-foreground hover:translate-x-1"
+                className="group relative flex items-center justify-between rounded-2xl border border-transparent bg-foreground/[0.02] px-4 py-3 text-sm font-semibold text-foreground/80 transition-all hover:border-primary/20 hover:bg-primary/[0.06] hover:text-foreground hover:translate-x-1"
                 activeProps={{
                   className:
-                    "relative flex items-center justify-between rounded-2xl border border-primary/25 bg-primary/[0.08] px-4 py-3.5 text-sm font-semibold text-foreground shadow-sm",
+                    "relative flex items-center justify-between rounded-2xl border border-primary/25 bg-primary/[0.08] px-4 py-3 text-sm font-semibold text-foreground shadow-sm",
                 }}
                 activeOptions={{ exact: item.to === "/" }}
               >
-                <span className="flex items-center gap-3">
-                  <span className="font-mono-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary/70">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>{item.label}</span>
-                </span>
+                <span>{item.label}</span>
                 <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
               </Link>
             ))}
 
-            <div className="my-3 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="my-2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
             <a
               href="https://hub.picode.com.br"
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground/80 hover:bg-accent transition-colors"
+              className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-4 py-2.5 text-sm font-semibold text-foreground/80 hover:bg-accent transition-colors"
             >
               Entrar
             </a>
             <Link to="/contato" onClick={() => setOpen(false)}>
-              <Button className="w-full rounded-2xl bg-gradient-blue text-white font-semibold h-12 shadow-glow hover:shadow-[0_18px_40px_-12px_oklch(0.55_0.2_255_/_0.55)] hover:-translate-y-0.5 transition-all">
+              <Button className="w-full rounded-2xl bg-gradient-blue text-white font-semibold h-11 shadow-glow hover:shadow-[0_18px_40px_-12px_oklch(0.55_0.2_255_/_0.55)] hover:-translate-y-0.5 transition-all">
                 Fale conosco
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
