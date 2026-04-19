@@ -168,6 +168,9 @@ function HomePage() {
                   className="h-full w-full scale-110 object-cover"
                   width={1536}
                   height={1280}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>
