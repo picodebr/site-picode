@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { render } from '@react-email/components'
 import { createClient } from '@supabase/supabase-js'
 import { createFileRoute } from '@tanstack/react-router'
+import { renderEmailHtml, renderEmailPlainText } from '@/lib/email/render'
 import { TEMPLATES } from '@/lib/email-templates/registry'
 
 // Configuration baked in at scaffold time
@@ -252,15 +252,9 @@ export const Route = createFileRoute("/lovable/email/transactional/send")({
         }
 
         // 4. Render React Email template to HTML; derive plain text from HTML
-        // (avoids html-to-text dep which has an ESM resolution bug for htmlparser2)
         const element = React.createElement(template.component, templateData)
-        const html = await render(element)
-        const plainText = html
-          .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-          .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-          .replace(/<[^>]+>/g, ' ')
-          .replace(/\s+/g, ' ')
-          .trim()
+        const html = await renderEmailHtml(element)
+        const plainText = renderEmailPlainText(html)
 
         // Resolve subject — supports static string or dynamic function
         const resolvedSubject =
