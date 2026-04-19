@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MessageCircle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, MessageCircle, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,6 +24,7 @@ export const Route = createFileRoute("/contato")({
 
 function ContatoPage() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   return (
     <>
@@ -135,6 +136,8 @@ function ContatoPage() {
                         return;
                       }
 
+                      if (submitting) return;
+                      setSubmitting(true);
                       try {
                         const res = await fetch("/api/contact", {
                           method: "POST",
@@ -154,6 +157,8 @@ function ContatoPage() {
                         setSent(true);
                       } catch {
                         toast.error("Erro de conexão. Verifique sua internet e tente novamente.");
+                      } finally {
+                        setSubmitting(false);
                       }
                     }}
                     className="space-y-5"
@@ -186,8 +191,26 @@ function ContatoPage() {
                       <Label htmlFor="msg" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Como podemos ajudar?</Label>
                       <Textarea id="msg" name="msg" required rows={5} placeholder="Conte um pouco sobre o seu projeto, número de alunos, séries..." className="mt-2 bg-background/60 resize-none" />
                     </div>
-                    <Button type="submit" size="lg" className="w-full bg-gradient-blue text-white shadow-glow h-12 rounded-xl font-semibold">
-                      Enviar mensagem <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={submitting}
+                      className="group relative w-full overflow-hidden bg-gradient-blue text-white shadow-glow h-12 rounded-xl font-semibold transition-all duration-300 hover:shadow-[0_18px_40px_-12px_oklch(0.55_0.2_255_/_0.55)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] disabled:opacity-90 disabled:cursor-wait"
+                    >
+                      <span aria-hidden className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                      <span className="relative inline-flex items-center justify-center">
+                        {submitting ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Enviando...
+                          </>
+                        ) : (
+                          <>
+                            Enviar mensagem
+                            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                          </>
+                        )}
+                      </span>
                     </Button>
                     <p className="text-[11px] text-center text-muted-foreground">
                       Ao enviar, você concorda em receber um retorno do nosso time comercial.
