@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
-import studentsImg from "@/assets/students-collab.jpg";
+import studentsImg from "@/assets/students-collab-updated.jpg";
 import foguete3d from "@/assets/foguete-3d.png";
 import partnerWadhwani from "@/assets/partner-wadhwani.webp";
 import partnerAws from "@/assets/partner-aws-edstart.png";
