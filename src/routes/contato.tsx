@@ -94,7 +94,7 @@ function ContatoPage() {
                     <CheckCircle2 className="h-10 w-10 text-primary" />
                   </div>
                   <h3 className="mt-5 font-display text-2xl font-bold uppercase tracking-tight">Mensagem enviada!</h3>
-                  <p className="mt-2 text-muted-foreground">Em breve nosso time entra em contato.</p>
+                  <p className="mt-2 text-muted-foreground">Em breve nosso time entrará em contato.</p>
                 </div>
               ) : (
                 <>
