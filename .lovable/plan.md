@@ -1,27 +1,21 @@
 
-Usuário ajustou: **só enviar 1 e-mail (notificação interna para o time)**. Sem confirmação para o lead. Simplifica bastante.
+## Diagnóstico
 
-## Plano revisado
+A rota `/api/contact` (e `lovable/email/transactional/send.ts` e `preview.ts`) chama `render()` do `@react-email/components`. Esse `render` puxa `html-to-text` para gerar a versão texto do e-mail, e `html-to-text` tenta importar `htmlparser2` via ESM — resolução falha → servidor de dev cai → preview em branco.
 
-1. **Scaffold de e-mails transacionais** — cria infra base (rota de envio, registry, página `/unsubscribe`, suppression). Necessário para usar o sistema de e-mail.
+## Correção
 
-2. **Criar 1 template React Email**: `contact-notification` → para o time (`piovani@picode.com.br`), com os dados do lead formatados na identidade visual da PiCode (navy/azul).
+**Adicionar `htmlparser2` como dependência direta** do projeto. Isso força o instalador a resolver o pacote no nível raiz de `node_modules`, satisfazendo o import ESM de `html-to-text`.
 
-3. **Criar tabela `contact_submissions`** — guarda nome, cargo, e-mail, telefone, escola, mensagem, timestamp. RLS travado (só service role).
+Passos:
+1. Adicionar `htmlparser2` ao `package.json` (via `add_dependency`).
+2. Aguardar reinstalação automática.
+3. Confirmar nos logs do dev-server que o erro sumiu e o preview voltou.
 
-4. **Criar rota pública `/api/contact`** (server route TanStack) — recebe POST, valida com Zod (anti-spam: limites de tamanho, formato de e-mail), grava no banco, enfileira o e-mail de notificação.
+Se mesmo assim o erro persistir (raro), o plano B é mover a renderização do e-mail para fora do request handler (renderizar via worker da fila ou pré-renderizar templates) — mas começamos pelo fix simples.
 
-5. **Atualizar `src/routes/contato.tsx`** — trocar o `mailto:` por `fetch('/api/contact')`. Mantém tela de sucesso, adiciona toast de erro.
+## Por que aconteceu
 
-6. **Publicar o app** — server routes só funcionam em produção depois do publish.
+`@react-email/components` é uma dependência relativamente pesada e o `bun`/`npm` em alguns casos não hoista `htmlparser2` para o local que o ESM loader do Node espera. Declarar explicitamente resolve.
 
-## Resultado
-
-- Visitante envia → vê tela de sucesso.
-- Time recebe e-mail formatado em `piovani@picode.com.br` em segundos.
-- Lead **não recebe nada** (conforme pedido).
-- Histórico salvo no banco mesmo se o e-mail falhar.
-
-## Sobre o DNS
-
-`notify.picode.com.br` ainda em verificação. Tudo acima pode ser construído agora; e-mails ficam na fila e saem assim que o DNS validar.
+Nada de mexer no código da aplicação — só adicionar a dependência.
