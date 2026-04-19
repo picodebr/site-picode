@@ -2,11 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Code2, Brain, Lightbulb, Rocket, Target, Award, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero.jpg";
-import rocketImg from "@/assets/3d-rocket.webp";
-import robotImg from "@/assets/3d-robot.webp";
-import bulbImg from "@/assets/3d-bulb.webp";
-import studentsImg from "@/assets/students-collab.webp";
-import mockupCombo from "@/assets/mockup-combo.webp";
+import rocketImg from "@/assets/3d-rocket.png";
+import robotImg from "@/assets/3d-robot.png";
+import bulbImg from "@/assets/3d-bulb.png";
+import studentsImg from "@/assets/students-collab.jpg";
+import mockupCombo from "@/assets/mockup-combo.png";
 import impactBgVideo from "@/assets/impact-bg-web.mp4";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
@@ -168,9 +168,6 @@ function HomePage() {
                   className="h-full w-full scale-110 object-cover"
                   width={1536}
                   height={1280}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               </div>

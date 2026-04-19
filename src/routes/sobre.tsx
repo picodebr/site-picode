@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
-import studentsImg from "@/assets/students-collab-updated.webp";
-import foguete3d from "@/assets/foguete-3d.webp";
+import studentsImg from "@/assets/students-collab-updated.jpg";
+import foguete3d from "@/assets/foguete-3d.png";
 import partnerWadhwani from "@/assets/partner-wadhwani.webp";
-import partnerAws from "@/assets/partner-aws-edstart.webp";
-import partnerAnjos from "@/assets/partner-anjos.webp";
-import partnerCriabiz from "@/assets/partner-criabiz.webp";
+import partnerAws from "@/assets/partner-aws-edstart.png";
+import partnerAnjos from "@/assets/partner-anjos.png";
+import partnerCriabiz from "@/assets/partner-criabiz.png";
 
 const partners = [
   { src: partnerWadhwani, alt: "Wadhwani Foundation" },
