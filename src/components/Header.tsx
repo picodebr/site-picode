@@ -52,7 +52,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <a href="https://hub.picode.com.br/login" target="_blank" rel="noreferrer">
+          <a href="https://hub.picode.com.br" target="_blank" rel="noreferrer">
             <Button variant="ghost" size="sm" className="font-medium">
               Entrar
             </Button>
