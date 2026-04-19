@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { PathLines } from "@/components/PathLines";
 import { DotsField } from "@/components/DotsField";
 import { SpotlightHero } from "@/components/SpotlightHero";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
