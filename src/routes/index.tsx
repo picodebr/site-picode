@@ -56,7 +56,7 @@ const competencias = [
 ];
 
 const stats: Array<{ end: number; suffix?: string; label: string; separator?: boolean }> = [
-  { end: 50, suffix: "mil+", label: "alunos impactados", separator: false },
+  { end: 50, suffix: " mil+", label: "alunos impactados", separator: false },
   { end: 1000, suffix: "+", label: "professores formados" },
   { end: 98, suffix: "%", label: "das famílias aprovam a metodologia" },
   { end: 100, suffix: " mil+", label: "projetos autorais" },
