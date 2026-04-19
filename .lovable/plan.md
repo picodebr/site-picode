@@ -1,26 +1,27 @@
 
-Usuário aprovou ativar o Cloud para o formulário de contato funcionar enviando e-mail real para o time.
+Usuário ajustou: **só enviar 1 e-mail (notificação interna para o time)**. Sem confirmação para o lead. Simplifica bastante.
 
-## Plano
+## Plano revisado
 
-1. **Ativar Lovable Cloud** — habilita backend (Supabase) e infra de e-mail.
-2. **Configurar domínio de e-mail** — abrir o diálogo de setup do domínio remetente. Sugestão: `notify.picode.com.br`. Você precisará adicionar uns registros DNS no provedor do domínio depois (te guio na hora). Esse passo é necessário para os e-mails saírem do seu próprio domínio com boa entregabilidade.
-3. **Subir infra de e-mails** — fila com retry automático, suppression list, logs de envio. Tudo gerenciado.
-4. **Criar tabela `contact_submissions`** — guarda cada envio do formulário (nome, cargo, e-mail, telefone, escola, mensagem, timestamp). Mesmo que o e-mail falhe, o registro fica. RLS travado: só service role escreve/lê.
-5. **Criar dois templates de e-mail** (React Email):
-   - **Notificação interna** → para `piovani@picode.com.br` com todos os dados do lead, formatados.
-   - **Confirmação para o lead** → "Recebemos seu contato, retornamos em até 1 dia útil", assinado pela PiCode.
-6. **Criar rota pública `/api/contact`** — recebe o POST do formulário, valida com Zod (limites de tamanho anti-spam), grava no banco, dispara os dois e-mails pela fila. Sem auth (formulário é público), mas com validação rígida.
-7. **Atualizar `src/routes/contato.tsx`** — trocar o `mailto:` por `fetch('/api/contact', ...)`. Manter a tela de "Mensagem enviada!" no sucesso, mostrar toast de erro se algo falhar.
+1. **Scaffold de e-mails transacionais** — cria infra base (rota de envio, registry, página `/unsubscribe`, suppression). Necessário para usar o sistema de e-mail.
 
-## Resultado para você
+2. **Criar 1 template React Email**: `contact-notification` → para o time (`piovani@picode.com.br`), com os dados do lead formatados na identidade visual da PiCode (navy/azul).
 
-- Visitante preenche e clica "Enviar" → vê tela de sucesso na hora.
+3. **Criar tabela `contact_submissions`** — guarda nome, cargo, e-mail, telefone, escola, mensagem, timestamp. RLS travado (só service role).
+
+4. **Criar rota pública `/api/contact`** (server route TanStack) — recebe POST, valida com Zod (anti-spam: limites de tamanho, formato de e-mail), grava no banco, enfileira o e-mail de notificação.
+
+5. **Atualizar `src/routes/contato.tsx`** — trocar o `mailto:` por `fetch('/api/contact')`. Mantém tela de sucesso, adiciona toast de erro.
+
+6. **Publicar o app** — server routes só funcionam em produção depois do publish.
+
+## Resultado
+
+- Visitante envia → vê tela de sucesso.
 - Time recebe e-mail formatado em `piovani@picode.com.br` em segundos.
-- Lead recebe e-mail de confirmação automático.
-- Histórico de todos os contatos fica salvo no banco.
+- Lead **não recebe nada** (conforme pedido).
+- Histórico salvo no banco mesmo se o e-mail falhar.
 
-## Confirmar antes de executar
+## Sobre o DNS
 
-- **E-mail de destino**: `piovani@picode.com.br` (mesmo do `mailto:` atual). Se for outro, me avisa.
-- **Subdomínio remetente**: vou sugerir `notify.picode.com.br` no diálogo. Se preferir outro nome, ajusta na hora.
+`notify.picode.com.br` ainda em verificação. Tudo acima pode ser construído agora; e-mails ficam na fila e saem assim que o DNS validar.
