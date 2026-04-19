@@ -66,7 +66,7 @@ function ContatoPage() {
 
             <div className="grid grid-cols-2 gap-3">
               <a
-                href="https://www.wa.link/zmkrcm"
+                href="https://wa.me/5515981329879"
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex items-center justify-center gap-2 h-11 rounded-xl border border-border bg-card/60 backdrop-blur-xl px-4 text-sm font-semibold hover:border-primary/40 hover:bg-primary/[0.04] transition-colors shadow-card"
