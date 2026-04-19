@@ -110,36 +110,51 @@ function ContatoPage() {
                     </p>
                   </div>
                   <form
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
                       const form = e.currentTarget;
                       const data = new FormData(form);
-                      const name = (data.get("name") as string)?.trim() ?? "";
-                      const role = (data.get("role") as string)?.trim() ?? "";
-                      const email = (data.get("email") as string)?.trim() ?? "";
-                      const phone = (data.get("phone") as string)?.trim() ?? "";
-                      const school = (data.get("school") as string)?.trim() ?? "";
-                      const msg = (data.get("msg") as string)?.trim() ?? "";
+                      const payload = {
+                        name: ((data.get("name") as string) ?? "").trim(),
+                        role: ((data.get("role") as string) ?? "").trim(),
+                        email: ((data.get("email") as string) ?? "").trim(),
+                        phone: ((data.get("phone") as string) ?? "").trim(),
+                        school: ((data.get("school") as string) ?? "").trim(),
+                        message: ((data.get("msg") as string) ?? "").trim(),
+                      };
 
-                      if (!name || !role || !email || !phone || !school || !msg) {
+                      if (
+                        !payload.name ||
+                        !payload.role ||
+                        !payload.email ||
+                        !payload.phone ||
+                        !payload.school ||
+                        !payload.message
+                      ) {
                         toast.error("Por favor, preencha todos os campos antes de enviar.");
                         return;
                       }
 
-                      const subject = `Novo contato pelo site — ${name} (${school})`;
-                      const body = [
-                        `Nome: ${name}`,
-                        `Cargo: ${role}`,
-                        `E-mail: ${email}`,
-                        `Telefone: ${phone}`,
-                        `Escola: ${school}`,
-                        ``,
-                        `Mensagem:`,
-                        msg,
-                      ].join("\n");
-
-                      window.location.href = `mailto:piovani@picode.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                      setSent(true);
+                      try {
+                        const res = await fetch("/api/contact", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(payload),
+                        });
+                        if (!res.ok) {
+                          const err = await res.json().catch(() => ({}));
+                          if (res.status === 400 && err?.details?.fieldErrors) {
+                            const first = Object.values(err.details.fieldErrors)[0] as string[] | undefined;
+                            toast.error(first?.[0] ?? "Verifique os dados e tente novamente.");
+                          } else {
+                            toast.error("Não foi possível enviar agora. Tente novamente em instantes.");
+                          }
+                          return;
+                        }
+                        setSent(true);
+                      } catch {
+                        toast.error("Erro de conexão. Verifique sua internet e tente novamente.");
+                      }
                     }}
                     className="space-y-5"
                   >
