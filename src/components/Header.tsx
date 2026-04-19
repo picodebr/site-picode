@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/button";
 
@@ -78,23 +78,47 @@ export function Header() {
 
       {open && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-          <div className="flex flex-col p-4 gap-1">
-            {nav.map((item) => (
+          <nav className="flex flex-col p-4 gap-1.5">
+            {nav.map((item, i) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="px-4 py-3 text-sm font-medium rounded-lg hover:bg-accent"
+                className="group relative flex items-center justify-between rounded-2xl border border-transparent bg-foreground/[0.02] px-4 py-3.5 text-sm font-semibold text-foreground/80 transition-all hover:border-primary/20 hover:bg-primary/[0.06] hover:text-foreground hover:translate-x-1"
+                activeProps={{
+                  className:
+                    "relative flex items-center justify-between rounded-2xl border border-primary/25 bg-primary/[0.08] px-4 py-3.5 text-sm font-semibold text-foreground shadow-sm",
+                }}
+                activeOptions={{ exact: item.to === "/" }}
               >
-                {item.label}
+                <span className="flex items-center gap-3">
+                  <span className="font-mono-display text-[10px] font-bold uppercase tracking-[0.18em] text-primary/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>{item.label}</span>
+                </span>
+                <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
               </Link>
             ))}
-            <Link to="/contato" onClick={() => setOpen(false)} className="mt-2">
-              <Button className="w-full rounded-full bg-primary text-primary-foreground font-medium">
+
+            <div className="my-3 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+            <a
+              href="https://hub.picode.com.br"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground/80 hover:bg-accent transition-colors"
+            >
+              Entrar
+            </a>
+            <Link to="/contato" onClick={() => setOpen(false)}>
+              <Button className="w-full rounded-2xl bg-gradient-blue text-white font-semibold h-12 shadow-glow hover:shadow-[0_18px_40px_-12px_oklch(0.55_0.2_255_/_0.55)] hover:-translate-y-0.5 transition-all">
                 Fale conosco
+                <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
             </Link>
-          </div>
+          </nav>
         </div>
       )}
     </header>
