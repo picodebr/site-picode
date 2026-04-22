@@ -1,21 +1,25 @@
 
-## Diagnóstico
 
-A rota `/api/contact` (e `lovable/email/transactional/send.ts` e `preview.ts`) chama `render()` do `@react-email/components`. Esse `render` puxa `html-to-text` para gerar a versão texto do e-mail, e `html-to-text` tenta importar `htmlparser2` via ESM — resolução falha → servidor de dev cai → preview em branco.
+## Problema
+O preview está caindo porque o template de e-mail `src/lib/email-templates/contact-notification.tsx` importa `@react-email/body`, `@react-email/container`, etc., mas esses pacotes **não estão instalados**. Como `registry.ts` (e portanto `/api/contact`) carrega esse arquivo, o erro propaga e derruba o servidor.
 
-## Correção
+```
+Cannot find module '@react-email/body' imported from
+src/lib/email-templates/contact-notification.tsx
+```
 
-**Adicionar `htmlparser2` como dependência direta** do projeto. Isso força o instalador a resolver o pacote no nível raiz de `node_modules`, satisfazendo o import ESM de `html-to-text`.
+## Solução
+Substituir os componentes `@react-email/*` por **JSX puro com tags HTML nativas** (`<html>`, `<body>`, `<div>`, `<h1>`, etc.). Isso:
 
-Passos:
-1. Adicionar `htmlparser2` ao `package.json` (via `add_dependency`).
-2. Aguardar reinstalação automática.
-3. Confirmar nos logs do dev-server que o erro sumiu e o preview voltou.
+- Remove a dependência quebrada (sem precisar instalar nada).
+- Mantém o e-mail funcionando exatamente igual — `renderToStaticMarkup` (já usado em `src/lib/email/render.ts`) gera o mesmo HTML inline.
+- Preserva todos os estilos atuais (paleta da marca, layout, preview text).
 
-Se mesmo assim o erro persistir (raro), o plano B é mover a renderização do e-mail para fora do request handler (renderizar via worker da fila ou pré-renderizar templates) — mas começamos pelo fix simples.
+## Arquivo alterado
+- `src/lib/email-templates/contact-notification.tsx`
+  - Trocar imports de `@react-email/*` por nada (usar tags HTML).
+  - `<Html>` → `<html lang="pt-BR">`, `<Body>` → `<body>`, `<Container>/<Section>` → `<div>`, `<Heading>` → `<h1>`, `<Text>` → `<p>`, `<Hr>` → `<hr>`, `<Preview>` → `<div style={{display:'none'}}>`, `<Head>` → `<head><meta charSet="utf-8"/></head>`.
+  - Estilos e estrutura permanecem idênticos.
 
-## Por que aconteceu
+Sem mudanças em registry, render, ou rota `/api/contact`.
 
-`@react-email/components` é uma dependência relativamente pesada e o `bun`/`npm` em alguns casos não hoista `htmlparser2` para o local que o ESM loader do Node espera. Declarar explicitamente resolve.
-
-Nada de mexer no código da aplicação — só adicionar a dependência.
