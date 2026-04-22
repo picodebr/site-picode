@@ -1,12 +1,3 @@
-import { Body } from '@react-email/body'
-import { Container } from '@react-email/container'
-import { Head } from '@react-email/head'
-import { Heading } from '@react-email/heading'
-import { Hr } from '@react-email/hr'
-import { Html } from '@react-email/html'
-import { Preview } from '@react-email/preview'
-import { Section } from '@react-email/section'
-import { Text } from '@react-email/text'
 import type { TemplateEntry } from './registry'
 
 const SITE_NAME = 'PiCode Education'
@@ -30,70 +21,73 @@ const ContactNotificationEmail = ({
   message = '—',
   submittedAt,
 }: ContactNotificationProps) => (
-  <Html lang="pt-BR" dir="ltr">
-    <Head />
-    <Preview>
-      Novo contato pelo site — {name} ({school})
-    </Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Section style={brandBar}>
-          <Text style={brandText}>{SITE_NAME}</Text>
-        </Section>
+  <html lang="pt-BR" dir="ltr">
+    <head>
+      <meta charSet="utf-8" />
+      <title>Novo contato pelo site</title>
+    </head>
+    <body style={main}>
+      <div style={{ display: 'none', overflow: 'hidden', lineHeight: 1, opacity: 0, maxHeight: 0, maxWidth: 0 }}>
+        Novo contato pelo site — {name} ({school})
+      </div>
+      <div style={container}>
+        <div style={brandBar}>
+          <p style={brandText}>{SITE_NAME}</p>
+        </div>
 
-        <Section style={contentSection}>
-          <Heading style={h1}>Novo contato pelo site</Heading>
-          <Text style={subtitle}>
+        <div style={contentSection}>
+          <h1 style={h1}>Novo contato pelo site</h1>
+          <p style={subtitle}>
             Um lead acabou de preencher o formulário em picode.com.br
-          </Text>
+          </p>
 
-          <Hr style={divider} />
+          <hr style={divider} />
 
-          <Section style={fieldRow}>
-            <Text style={label}>Nome</Text>
-            <Text style={value}>{name}</Text>
-          </Section>
+          <div style={fieldRow}>
+            <p style={label}>Nome</p>
+            <p style={value}>{name}</p>
+          </div>
 
-          <Section style={fieldRow}>
-            <Text style={label}>Cargo</Text>
-            <Text style={value}>{role}</Text>
-          </Section>
+          <div style={fieldRow}>
+            <p style={label}>Cargo</p>
+            <p style={value}>{role}</p>
+          </div>
 
-          <Section style={fieldRow}>
-            <Text style={label}>Escola</Text>
-            <Text style={value}>{school}</Text>
-          </Section>
+          <div style={fieldRow}>
+            <p style={label}>Escola</p>
+            <p style={value}>{school}</p>
+          </div>
 
-          <Section style={fieldRow}>
-            <Text style={label}>E-mail</Text>
-            <Text style={value}>{email}</Text>
-          </Section>
+          <div style={fieldRow}>
+            <p style={label}>E-mail</p>
+            <p style={value}>{email}</p>
+          </div>
 
-          <Section style={fieldRow}>
-            <Text style={label}>Telefone</Text>
-            <Text style={value}>{phone}</Text>
-          </Section>
+          <div style={fieldRow}>
+            <p style={label}>Telefone</p>
+            <p style={value}>{phone}</p>
+          </div>
 
-          <Hr style={divider} />
+          <hr style={divider} />
 
-          <Section style={messageBlock}>
-            <Text style={label}>Mensagem</Text>
-            <Text style={messageText}>{message}</Text>
-          </Section>
+          <div style={messageBlock}>
+            <p style={label}>Mensagem</p>
+            <p style={messageText}>{message}</p>
+          </div>
 
           {submittedAt ? (
-            <Text style={timestamp}>Recebido em {submittedAt}</Text>
+            <p style={timestamp}>Recebido em {submittedAt}</p>
           ) : null}
-        </Section>
+        </div>
 
-        <Section style={footer}>
-          <Text style={footerText}>
+        <div style={footer}>
+          <p style={footerText}>
             Esta é uma notificação automática do site da {SITE_NAME}.
-          </Text>
-        </Section>
-      </Container>
-    </Body>
-  </Html>
+          </p>
+        </div>
+      </div>
+    </body>
+  </html>
 )
 
 export const template = {
