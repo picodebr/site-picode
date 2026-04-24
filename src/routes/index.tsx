@@ -21,7 +21,7 @@ import { TypewriterOnce } from "@/components/TypewriterOnce";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PiCode Education — Pensamento computacional para toda escola" },
+      { title: "PiCode" },
       {
         name: "description",
         content:
