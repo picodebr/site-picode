@@ -25,10 +25,22 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Plataforma gamificada e kits de robótica para levar o pensamento computacional para a sala de aula. Mais de 50 mil alunos impactados.",
+          "Plataforma e kits de robótica para escolas que ensinam pensamento computacional. Trilhas alinhadas à BNCC, formação de professores e suporte completo.",
       },
-      { property: "og:title", content: "PiCode Education — Pensamento computacional" },
-      { property: "og:description", content: "Plataformas e kits que transformam a forma de ensinar tecnologia nas escolas." },
+      { property: "og:title", content: "Leve o futuro para a sala de aula da sua escola" },
+      {
+        property: "og:description",
+        content:
+          "Descubra como a PiCode Education ajuda escolas brasileiras a ensinar programação, robótica e IA com trilhas BNCC e formação de professores.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Leve o futuro para a sala de aula da sua escola" },
+      {
+        name: "twitter:description",
+        content:
+          "Descubra como a PiCode Education ajuda escolas brasileiras a ensinar programação, robótica e IA com trilhas BNCC e formação de professores.",
+      },
     ],
   }),
   component: HomePage,
