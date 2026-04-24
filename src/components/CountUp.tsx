@@ -24,11 +24,27 @@ export function CountUp({
   separator = true,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
   const [value, setValue] = useState(0);
+  const [forceStart, setForceStart] = useState(false);
+
+  // Fallback: if the element is already on screen at mount (or IntersectionObserver
+  // doesn't fire due to layout timing), kick off the animation manually.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => {
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < vh && rect.bottom > 0) setForceStart(true);
+    };
+    check();
+    const t = window.setTimeout(check, 600);
+    return () => window.clearTimeout(t);
+  }, []);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView && !forceStart) return;
     let raf = 0;
     const start = performance.now();
 
@@ -46,7 +62,7 @@ export function CountUp({
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, end, duration]);
+  }, [inView, forceStart, end, duration]);
 
   const formatted = (() => {
     if (decimals > 0) {
