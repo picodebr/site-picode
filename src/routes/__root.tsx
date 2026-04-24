@@ -30,6 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "9NXsutLbWUeIQpOPhmRqqe0uO1v6z5LP5oNApU_9uQA" },
       { title: "PiCode Education" },
       {
         name: "description",
