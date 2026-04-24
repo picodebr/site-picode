@@ -62,7 +62,7 @@ export function CountUp({
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, end, duration]);
+  }, [inView, forceStart, end, duration]);
 
   const formatted = (() => {
     if (decimals > 0) {
